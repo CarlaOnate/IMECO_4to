@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/carla/CLionProjects/AnalizadorLexico/main.cpp
+iostream
+-
+fstream
+-
+vector
+/Users/carla/CLionProjects/AnalizadorLexico/vector
+string
+/Users/carla/CLionProjects/AnalizadorLexico/string
+algorithm
+-
+regex
+/Users/carla/CLionProjects/AnalizadorLexico/regex
+

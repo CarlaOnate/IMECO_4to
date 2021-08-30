@@ -1,0 +1,9 @@
+define(x){
+    null? = mochon
+    ;aqui comento que esto esta cool
+    mochon < x
+}
+1.2
+1.2e4
+
+$
