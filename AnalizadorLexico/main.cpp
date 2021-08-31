@@ -76,7 +76,7 @@ int main() {
     std::vector<std::string> words = {"define", "lambda", "if", "cond", "else", "true", "false", "nil", "car", "cdr", "cons", "list", "apply", "map", "let", "begin", "null?", "eq?", "set!"};
 
     char c = ' ';
-    std::ifstream textFile("pruebaT3 (1).txt");
+    std::ifstream textFile("text.txt");
     int edo = 0;
 
     if (textFile.is_open()){
