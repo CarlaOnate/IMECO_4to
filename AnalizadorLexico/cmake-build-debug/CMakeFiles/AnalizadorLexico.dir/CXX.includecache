@@ -6,17 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/Users/carla/CLionProjects/AnalizadorLexico/main.cpp
+/Users/carla/CLionProjects/IMECO_4to/AnalizadorLexico/main.cpp
 iostream
 -
 fstream
 -
 vector
-/Users/carla/CLionProjects/AnalizadorLexico/vector
+/Users/carla/CLionProjects/IMECO_4to/AnalizadorLexico/vector
 string
-/Users/carla/CLionProjects/AnalizadorLexico/string
+-
 algorithm
 -
-regex
-/Users/carla/CLionProjects/AnalizadorLexico/regex
 

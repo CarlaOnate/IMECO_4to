@@ -3,16 +3,15 @@
 #include <iostream>
 #include <fstream>
 #include "vector"
-#include "string"
+#include <string>
 #include <algorithm>
-#include "regex"
 
 
 
 //9 estados intermedios y 22 caracteres en total  -- AGREGRA :
 //            letra(ad-fz), dig, esp,  +,  -,   *,   /,   <,   >,  =,   (,   ),   [,    ],   {,    },   ;,  ,,   ',   ",   #,   \,   enter, .,  raro, (e,E), _,   :,  |
 int MT [10][29] = {
-/* 0 */               {6,   2,   -1,   131, 1,   123, 123, 9,   9,   130, 124, 124, 124, 124, 124, 124, 7,   126, 127, 127, 128, 129,  0,    125, -1,   6,   123, 120, 129},
+/* 0 */               {6,   2,   -1,   131, 1,   123, 123, 9,   9,   130, 124, 124, 124, 124, 124, 124, 7,   126, 127, 127, 128, 129,  -1,    125, -1,   6,   123, 120, 129},
 /* 1 */               {132, 2,   132, 132, 132, 132, 132, 132, 132, 132, 132, 132, 132, 132, 132, 132, 132, 132, 132, 132, 132, 132,  132,  132, -1,   132, 132, 132, 132},
 /* 2 */               {100, 2,   100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,  100,  3,   -1,   100, 100, 100, 100},
 /* 3 */               {-1,  4,   -1,  -1,  -1,  -1   -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,   -1,   -1,  -1,   -1,  -1,  -1,  -1},
@@ -77,7 +76,7 @@ int main() {
     std::vector<std::string> words = {"define", "lambda", "if", "cond", "else", "true", "false", "nil", "car", "cdr", "cons", "list", "apply", "map", "let", "begin", "null?", "eq?", "set!"};
 
     char c = ' ';
-    std::ifstream textFile("text.txt");
+    std::ifstream textFile("pruebaT3 (1).txt");
     int edo = 0;
 
     if (textFile.is_open()){
@@ -85,7 +84,7 @@ int main() {
 
             std::string word;
             textFile.get(c);
-
+            word = "";
             while (edo < 100 && edo > -1){
                 edo = MT[edo][getCol(edo, c)];
                 auto reserved = std::find(words.begin(), words.end(), word); //Si ponia esto adentro marcaba error por alguna razon
@@ -99,7 +98,7 @@ int main() {
                         edo = 0;
                         break;
                     case 102:
-                        std::cout << word << "  ->Numbero con e,E:  "<< std::endl;
+                        std::cout << word << "  ->Numero con e,E:  "<< std::endl;
                         break;
                     case 103:
                         if(reserved != words.end()){
@@ -153,8 +152,10 @@ int main() {
                     case 133:
                         std::cout << c << "  ->Mayor y igual  "<< std::endl;
                         break;
+                    case -1:
+                        break;
                     default:
-                        word += c;
+                        if(c != '\n') word += c;
                         textFile.get(c);
                         break;
                 }

@@ -1,9 +1,8 @@
-define(x){
-    null? = mochon
-    ;aqui comento que esto esta cool
-    mochon < x
-}
-1.2
-1.2e4
-
+(define (cuadrado x)
+  (* x x))
+#
+(define (area-circulo r)
+  (* 3.1416 (cuadrado r)))
+; fin
+; aquí se define si has entendido o no lo que hemos aprendido
 $

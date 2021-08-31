@@ -1,3 +1,3 @@
-/Users/carla/CLionProjects/AnalizadorLexico/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/carla/CLionProjects/AnalizadorLexico/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/carla/CLionProjects/AnalizadorLexico/cmake-build-debug/CMakeFiles/AnalizadorLexico.dir
+/Users/carla/CLionProjects/IMECO_4to/AnalizadorLexico/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/carla/CLionProjects/IMECO_4to/AnalizadorLexico/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/carla/CLionProjects/IMECO_4to/AnalizadorLexico/cmake-build-debug/CMakeFiles/AnalizadorLexico.dir
