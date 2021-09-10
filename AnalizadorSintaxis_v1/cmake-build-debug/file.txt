@@ -1,3 +1,5 @@
+567
+1.23e4
 1
 234
 (define (cuadrado x)

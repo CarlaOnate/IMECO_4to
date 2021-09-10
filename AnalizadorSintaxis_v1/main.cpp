@@ -1,42 +1,55 @@
 #include <iostream>
 #include <regex>
 #include <fstream>
+#include <vector>
 
-std::string replaceString(std::string className, std::string match){
-    //Todo: Poner bien esta función
-    std::string replace = "<span class=\"number\">";
-    replace.append(match);
-    replace.append("</span>");
-//    std::regex_replace(match, numbers, replaceString);
-    return replace;
-}
 
 
 int main() {
     std::fstream file("file.txt");
-    std::string word;
-    char c;
-    std::smatch match;
+    std::string line;
+    std::vector<std::string> resultFile;
+
+    std::fstream outputFile;
+
 
     //Regex
-    std::regex numbersReg("\\d+");
-    std::regex delimitadores("");
+    std::regex numbersReg(R"(\d+)");
+    std::regex numbersE_Reg(R"(^[+-]?(\d*\.)?\d+$)");
 
     if(file.is_open()){
-        while(std::getline(file, word)){
-            std::regex_search(word, match, numbersReg, std::regex_constants::match_flag_type::match_any);
-            for(const auto & i : match){
-                std::cout << i << " |  ";
-            }
-        }
+    std::smatch numberMatch;
+    std::smatch testMatch;
+    std::string changedLine;
+        while(std::getline(file, line)){
+            changedLine = line;
+            //Number
+            std::regex_search(line, numberMatch, numbersReg, std::regex_constants::match_flag_type::match_any);
+            //Test
+            std::regex_search(line, testMatch, numbersE_Reg, std::regex_constants::match_flag_type::match_any);
 
-//        while(file.get(c)){
-//            word += c;
-//            if(std::regex_match(word, match, numbers)){
-//                replaceString("number", match[0]);
-//            }
-//        }
+            if(!numberMatch.empty()){
+                //Detecto numeros en la línea
+                std::string replaceString = "<span class=\"numbers\">";
+                replaceString.append(numberMatch[0]);
+                replaceString.append("</span>");
+
+                changedLine = std::regex_replace(line, numbersReg, replaceString);
+                std::cout << changedLine;
+            }
+
+        }
+     file.close();
     }
+
+    outputFile.open("output.html");
+    //Todo: Falta poner los header y DOCTYPE!
+    for(const std::string& el : resultFile){
+        outputFile << el << std::endl;
+    }
+
+    outputFile.close();
+
 }
 
 
