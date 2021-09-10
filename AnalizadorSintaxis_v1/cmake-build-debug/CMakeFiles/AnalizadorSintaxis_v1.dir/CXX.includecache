@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/carla/CLionProjects/IMECO_4to/AnalizadorSintaxis_v1/main.cpp
+iostream
+-
+regex
+-
+fstream
+-
+
