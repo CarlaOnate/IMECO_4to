@@ -52,14 +52,14 @@ defines
 
 (define (area-cilindro radio altura)
 
-   (+ (* 2 (área-circulo radio)
+   (+ (* 2 (area-circulo radio)
 
         (* (* 2 314.16E-2 radio) altura))))
 
 
 
 
-(define (cuantos n)  ; define la cantidad de dígitos de un entero
+(define (cuantos n)  ; define la cantidad de digitos de un entero
 
   (if (<= n 9) 1
 
