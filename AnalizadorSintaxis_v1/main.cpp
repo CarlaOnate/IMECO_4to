@@ -9,49 +9,51 @@
 
 
 std::smatch matching(std::string line, std::regex regularEx){
-
     std::smatch match;
-//    std::smatch numberMatch;
-//    std::smatch decimalNumbersMatch;
-//    std::smatch expNumbersMatch;
-//    std::smatch reservedWordMatch;
-//    std::smatch commentMatch;
-//    std::smatch identifierWordMatch;
-//    std::smatch parenthesisMatch;
-//    std::smatch specialMatch;
-//    std::smatch quotesMatch;
 
-//    //Regex
-//    std::regex numbersReg(R"(\d+)"); // Fixme: No sirvo - reconozco numeros que son parte de exp
-//    std::regex decimalNumbersReg(R"(^[+-]?(\d*\.)?\d+$)");  //Fixme: no sirvoo ahaa
-//    std::regex expNumbersReg(R"(\d+\.\d+[e|E]\d)");  // Todo: test
-//    std::regex reservedWordReg(R"([a-zA-Z]+[?|!]*(?!\.))");  //Todo: Separates words - test
-//    std::regex commentReg(R"(;[[:print:]]*)");  // Todo: Test
-//    std::regex identifierReg(R"(^[a-zA-Z]+\w+(?!\.\d))");  //Todo: Test
-//    std::regex parenthesisReg(R"([\(|\)]*[\{|\}]*[\[|\]]*)");  //Todo: Test
-//    std::regex specialsReg(R"([\+|\-|\*|\/|\<|[<=]|\>|[>=]|\=|\<|\>|\(|\)]*)");  //Todo: test
-//    std::regex quotesReg(R"([\"|\']\w.*[\"|\']\s)");  //Todo:test
-//
-//    //Number
     std::regex_search(line, match, regularEx, std::regex_constants::match_flag_type::match_any);
-//    //Decimal Numbers
-//    std::regex_search(line, decimalNumbersMatch, decimalNumbersReg, std::regex_constants::match_flag_type::match_any);
-//    //Exp numbers - Fixme: no sirvo
-//    std::regex_search(line, expNumbersMatch, expNumbersReg, std::regex_constants::match_flag_type::match_any);
-//    //ReservedWord
-//    std::regex_search(line, reservedWordMatch, reservedWordReg, std::regex_constants::match_flag_type::match_any);
-//    //Comment
-//    std::regex_search(line, commentMatch, commentReg, std::regex_constants::match_flag_type::match_any);
-//    //Identifier
-//    std::regex_search(line, identifierWordMatch, identifierReg, std::regex_constants::match_flag_type::match_any);
-//    //Parenthesis
-//    std::regex_search(line, parenthesisMatch, parenthesisReg, std::regex_constants::match_flag_type::match_any);
-//    //specials
-//    std::regex_search(line, specialMatch, specialsReg, std::regex_constants::match_flag_type::match_any);
-//    //quotes
-//    std::regex_search(line, quotesMatch, quotesReg, std::regex_constants::match_flag_type::match_any);
-    return match;
 
+    return match;
+}
+
+
+std::string replaceMatchforHTML(std::string line, std::string el, std::regex reg, int type){
+        std::string replaceString = "<span class=";
+        switch (type) {
+            case 0:
+                replaceString.append("\"number\"");
+            break;
+            case 1:
+                replaceString.append("\"decimal\"");
+            break;
+            case 2:
+                replaceString.append("\"exp\"");
+            break;
+            case 3:
+                replaceString.append("\"reserved\"");
+            break;
+            case 4:
+                replaceString.append("\"comment\"");
+            break;
+            case 5:
+                replaceString.append("\"identifier\"");
+            break;
+            case 6:
+                replaceString.append("\"parenthesis\"");
+            break;
+            case 7:
+                replaceString.append("\"quotes\"");
+            break;
+            default:
+                replaceString.append("\"default\"");
+            break;
+        }
+        replaceString.append("/>");
+        replaceString.append(el);
+        replaceString.append("</span>");
+        std::cout << replaceString << "\n";
+        std::regex_replace(line, reg, replaceString);
+        return replaceString;
 }
 
 
@@ -80,19 +82,24 @@ int main() {
     std::string changedLine;
         while(std::getline(file, line)){
             changedLine = line;
-
-            //Number
-            auto matches = matching(line, numbersReg);
-            if(!matches.empty()){
-                for(auto el : matches){
-                    std::string replaceString = "<span class=\"numbers\">";
-                    replaceString.append(el);
-                    replaceString.append("</span>");
-                    changedLine = std::regex_replace(line, numbersReg, replaceString);
-                    std::cout << changedLine << "\n";
+            int type = 0;
+            std::smatch matches;
+            std::vector<std::regex> regularExps = {numbersReg, decimalNumbersReg, expNumbersReg, reservedWordReg, commentReg,
+                                                   identifierReg, parenthesisReg, quotesReg};
+            for(int i=0; i < regularExps.size(); i++){
+                // 0 - Numbers, 1 - decimalNum, 2 - expNumber, 3 - reservedWords, 4 - comment, 5 - identifier, 6 - parenthesis, 7 - quotes.
+                matches = matching(line, regularExps[i]);
+                if(!matches.empty()){
+                    if(i != 6 && (i > 3)){
+                        for(auto el : matches){
+                            changedLine = replaceMatchforHTML(line,el, regularExps[i], i);
+                        }
+                    }
+//                    else {
+                        //Todo: Reconocer si las palabras son reservadas o nel en esta parte
+//                    }
                 }
             }
-
 
             resultFile.push_back(changedLine);
         }
