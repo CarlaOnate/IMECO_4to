@@ -1,5 +1,7 @@
 (define (cuadrado x)
-
+3123
+12.342
+56.872e4
   (* x x))
 #
 (define (area-circulo r)

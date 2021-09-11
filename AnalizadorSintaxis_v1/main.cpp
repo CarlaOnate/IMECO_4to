@@ -11,7 +11,7 @@ std::string replaceMatchforHTML(std::string& line, std::regex reg, int type){
     std::vector<std::string> reservedWords = {"define", "lambda", "if", "cond", "else", "true", "false", "nil", "car", "cdr", "cons", "list", "apply", "map", "let", "begin", "null?", "eq?", "set!"};
 
 
-    if(type == 3){
+    if(type == 0){
         //If its comment then manually set tag
         if(line.find(';') != std::string::npos){
             return "<span class=\"comment\">" + line + "</span>";
@@ -54,20 +54,14 @@ std::string replaceMatchforHTML(std::string& line, std::regex reg, int type){
     } else {
         std::string replaceString = "<span class=";
             switch (type) {
-                case 0:
-                    replaceString.append("\"number\"");
-                break;
                 case 1:
                     replaceString.append("\"decimal\"");
                 break;
                 case 2:
                     replaceString.append("\"exp\"");
                 break;
-                case 4:
+                case 3:
                     replaceString.append("\"parenthesis\"");
-                break;
-                case 5:
-                    replaceString.append("\"quotes\"");
                 break;
                 default:
                     replaceString.append("\"default\"");
@@ -85,13 +79,11 @@ std::string replaceMatchforHTML(std::string& line, std::regex reg, int type){
 
 int main() {
     //Regex
-    std::regex numbersReg(R"(\d+)"); // Fixme: No sirvo - reconozco numeros que son parte de exp
-    std::regex decimalNumbersReg(R"(^[+-]?(\d*\.)?\d+$)");  //Fixme: no sirvoo ahaa
+    std::regex decimalNumbersReg(R"(\b(?!.*?e|E)\d+(\.)*\d+)");  //Todo: Test me
     std::regex expNumbersReg(R"(\d+\.\d+[e|E]\d)");  // Todo: test
-    std::regex identifierReg(R"([a-zA-Z]+[\w*|\-*]*(?!\.\d))");  //Indentifica mal los comentarios
+    std::regex identifierReg(R"((?!e|E)[a-zA-Z]+(\-|\w)*(?!\.\d))");  //Indentifica mal los comentarios
     std::regex parenthesisReg(R"([\(|\)\{|\}|\[|\]]+)");
 //    std::regex specialsReg(R"([\+|\-|\*|\/|\<|[<=]|\>|[>=]|\=|\<|\>|\(|\)]*)");  //Fixme: I cause -> The parser did not consume the entire regular expression.
-    std::regex quotesReg(R"([\"|\']\w.*[\"|\']\s)");
 
 
     std::fstream file("file.txt");
@@ -108,14 +100,11 @@ int main() {
             changedLine = line;
             int type = 0;
             std::smatch matches;
-            std::vector<std::regex> regularExps = {numbersReg, decimalNumbersReg, expNumbersReg,
-                                                   identifierReg, parenthesisReg, quotesReg};
+            std::vector<std::regex> regularExps = {identifierReg, decimalNumbersReg, expNumbersReg, parenthesisReg};
 
             for(int i=0; i < regularExps.size(); i++){
-//                // 0 - Numbers, 1 - decimalNum, 2 - expNumber, 3 - identifier, 4 - parenthesis, 5 - quotes.
-                if(i > 2){
-                    changedLine = replaceMatchforHTML(changedLine, regularExps[i], i);
-                }
+                // 0 - Identifier, 1 - Decimal, 2 - expNum, 3 - Parenthesis
+                changedLine = replaceMatchforHTML(changedLine, regularExps[i], i);
             }
             resultFile.push_back(changedLine);
         }
