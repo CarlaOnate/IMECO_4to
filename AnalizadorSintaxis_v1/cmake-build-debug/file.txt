@@ -1,4 +1,5 @@
 (define (cuadrado x)
+
   (* x x))
 #
 (define (area-circulo r)
