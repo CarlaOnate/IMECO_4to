@@ -55,12 +55,15 @@ std::string replaceMatchforHTML(std::string& line, std::regex reg, int type){
         std::string replaceString = "<span class=";
             switch (type) {
                 case 1:
-                    replaceString.append("\"decimal\"");
+                    replaceString.append("\"specials\"");
                 break;
                 case 2:
-                    replaceString.append("\"exp\"");
+                    replaceString.append("\"decimal\"");
                 break;
                 case 3:
+                    replaceString.append("\"exp\"");
+                break;
+                case 4:
                     replaceString.append("\"parenthesis\"");
                 break;
                 default:
@@ -79,11 +82,11 @@ std::string replaceMatchforHTML(std::string& line, std::regex reg, int type){
 
 int main() {
     //Regex
-    std::regex decimalNumbersReg(R"(\b(?!.*?e|E)\d+(\.)*\d+)");  //Todo: Test me
-    std::regex expNumbersReg(R"(\d+\.\d+[e|E]\d)");  // Todo: test
-    std::regex identifierReg(R"((?!e|E)[a-zA-Z]+(\-|\w)*(?!\.\d))");  //Indentifica mal los comentarios
+    std::regex decimalNumbersReg(R"(\b(?!.*?e|E)\d+(\.)*\d+)");
+    std::regex expNumbersReg(R"(\d+\.\d+[e|E]\d)");
+    std::regex identifierReg(R"((?!e|E)[a-zA-Z]+(\-|\w)*(?!\.\d))");
     std::regex parenthesisReg(R"([\(|\)\{|\}|\[|\]]+)");
-//    std::regex specialsReg(R"([\+|\-|\*|\/|\<|[<=]|\>|[>=]|\=|\<|\>|\(|\)]*)");  //Fixme: I cause -> The parser did not consume the entire regular expression.
+    std::regex specialsReg(R"((?!\>)[\+\-\/\<\>\=\*]+(?!\S|\<+))");
 
 
     std::fstream file("file.txt");
@@ -99,10 +102,10 @@ int main() {
             changedLine = line;
             int type = 0;
             std::smatch matches;
-            std::vector<std::regex> regularExps = {identifierReg, decimalNumbersReg, expNumbersReg, parenthesisReg};
+            std::vector<std::regex> regularExps = {identifierReg, specialsReg, decimalNumbersReg, expNumbersReg, parenthesisReg};
 
             for(int i=0; i < regularExps.size(); i++){
-                // 0 - Identifier, 1 - Decimal, 2 - expNum, 3 - Parenthesis
+                // 0 - Identifier, 1- Specials,  2 - Decimal, 3 - expNum, 4 - Parenthesis
                 changedLine = replaceMatchforHTML(changedLine, regularExps[i], i);
             }
             resultFile.push_back(changedLine);
@@ -116,37 +119,49 @@ int main() {
     outputFile << "<!DOCTYPE html>\n" << "<html>\n" << "<body>\n" << std::endl;
     outputFile << "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n"
                   "<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n"
-                  "<link href=\"https://fonts.googleapis.com/css2?family=Raleway:wght@200;400&display=swap\" rel=\"stylesheet\">" << std::endl;
-    outputFile << "<link rel=\"stylesheet\" type=\"text/css\" href=\"styles_index.css\" media=”screen”/>" << std::endl;
-
-
+                  "<link href=\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\" rel=\"stylesheet\">" << std::endl;
     std::cout << "VECTOR DE RESULTADO \n";
     for(const std::string& el : resultFile){
         std::cout << el << "\n";
         outputFile << "<p>" << el << "</p>" << std::endl;
     }
+    outputFile << "<style>\n"
+                  "    body {\n"
+                  "        font-family: 'Roboto', sans-serif;\n"
+                  "        background-color: antiquewhite;\n"
+                  "        color: black;\n"
+                  "    }\n"
+                  "\n"
+                  "    .identifier {\n"
+                  "        color: blueviolet;\n"
+                  "        font-weight: bold;\n"
+                  "    }\n"
+                  "\n"
+                  "    .decimal {\n"
+                  "        color: dimgrey;\n"
+                  "    }\n"
+                  "\n"
+                  "    .exp {\n"
+                  "        color: cadetblue;\n"
+                  "    }\n"
+                  "\n"
+                  "    .parenthesis {\n"
+                  "        color: brown;\n"
+                  "    }\n"
+                  "\n"
+                  "    .reserved {\n"
+                  "        color: chocolate;\n"
+                  "    }\n"
+                  "\n"
+                  "    .comment {\n"
+                  "        color: blue;\n"
+                  "    }\n"
+                  "    .specials {\n"
+                  "        color: green;\n"
+                  "    }\n"
+                  "</style>" << std::endl;
     outputFile << "</body>\n" << "</html>\n" << std::endl;
 
     outputFile.close();
 
 }
-
-
-//
-//                std::regex_iterator<std::string::iterator> it (line.begin(), line.end(), regularExps[i]);
-//                std::regex_iterator<std::string::iterator> end;
-//                std::cout << "i = " << i << "\n";
-//                while(it != end){
-//                    std::cout << it->str() << std::endl;
-//                    ++it;
-//                }
-//                std::cout << "\n\n";
-
-
-//                if(!matches.empty()){
-//                    if((i > 2)){
-//                        for(auto el : matches){
-//                            changedLine = replaceMatchforHTML(line,el, regularExps[i], i);
-//                        }
-//                    }
-//                }
