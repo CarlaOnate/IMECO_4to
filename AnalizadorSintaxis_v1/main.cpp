@@ -3,7 +3,7 @@
 #include <fstream>
 #include <vector>
 
-
+//Carla Oñate Gardella A01653555
 
 std::string identifierToHtml(std::string line, std::regex reg){
     std::vector<std::string> reservedWords = {"define", "lambda", "if", "cond", "else", "true", "false", "nil", "car", "cdr", "cons", "list", "apply", "map", "let", "begin", "null?", "eq?", "set!"};
@@ -26,19 +26,19 @@ std::string identifierToHtml(std::string line, std::regex reg){
     std::string replacedString = line;                      //modifications of line are being stored here
     for(const auto& el : nonDuplicatesMatches){
 
-        //If match is reserved word then class is different
-        if(std::find(reservedWords.begin(), reservedWords.end(), el) != reservedWords.end()){   //If match is found on reserved words vector
-            replace = "<span class=\"reserved\">";
-        } else {
-            replace = "<span class=\"identifier\">";
-        }
-        replace.append(R"($&)");
-        replace.append("</span>");
+//If match is reserved word then class is different
+    if(std::find(reservedWords.begin(), reservedWords.end(), el) != reservedWords.end()){   //If match is found on reserved words vector
+        replace = "<span class=\"reserved\">";
+    } else {
+        replace = "<span class=\"identifier\">";
+    }
+    replace.append(R"($&)");
+    replace.append("</span>");
 
-        //Create string to turn to regex -> \b(el)\b - this regex is the one used in the regex_replace function, this to prevent errors in matching
-        std::string regexString = "\\b("; regexString.append(el); regexString.append(")\\b");
-        std::regex reservedReg(regexString);  //Regular expression equal to the match word
-        replacedString = std::regex_replace(replacedString, reservedReg, replace);
+    //Create string to turn to regex -> \b(el)\b - this regex is the one used in the regex_replace function, this to prevent errors in matching
+    std::string regexString = "\\b("; regexString.append(el); regexString.append(")\\b");
+    std::regex reservedReg(regexString);  //Regular expression equal to the match word
+    replacedString = std::regex_replace(replacedString, reservedReg, replace);
     }
     return replacedString;  //Return modified string with HTML tags for the identifiers or reserved words only
 }
