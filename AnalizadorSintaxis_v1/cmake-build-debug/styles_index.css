@@ -1,5 +1,31 @@
-body{
+body {
     font-family: 'Raleway', sans-serif;
     font-weight: 200;
+    background-color: grey;
+    color: gainsboro;
 }
+
+p.identifier {
+    color: coral;
+    font-weight: 400;
+}
+
+p.decimals {
+    color: aqua;
+}
+
+p.exp {
+    color: aquamarine;
+}
+
+p.parenthesis {
+    color: brown;
+}
+
+p.reserved {
+    color: chocolate;
+}
+
+
+
 

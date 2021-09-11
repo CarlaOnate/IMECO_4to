@@ -36,7 +36,7 @@ std::string replaceMatchforHTML(std::string& line, std::regex reg, int type){
         for(const auto& el : nonDuplicatesMatches){
             std::cout << el << std::endl;
             //If match is reseved word then class type is different
-            if(std::find(reservedWords.begin(), reservedWords.end(), it->str()) != reservedWords.end()){
+            if(std::find(reservedWords.begin(), reservedWords.end(), el) != reservedWords.end()){
                 replace = "<span class=\"reserved\">";
             } else {
                 replace = "<span class=\"identifier\">";
@@ -92,7 +92,6 @@ int main() {
 
     std::fstream outputFile;
 
-
     if(file.is_open()){
 
     std::string changedLine;
@@ -113,19 +112,24 @@ int main() {
 
 
     outputFile.open("output.html", std::ios::out | std::ios::app);
-    //Todo: Falta poner los header y DOCTYPE!
+    //We write the basic tags for any HTML file
     outputFile << "<!DOCTYPE html>\n" << "<html>\n" << "<body>\n" << std::endl;
+    outputFile << "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n"
+                  "<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n"
+                  "<link href=\"https://fonts.googleapis.com/css2?family=Raleway:wght@200;400&display=swap\" rel=\"stylesheet\">" << std::endl;
+    outputFile << "<link rel=\"stylesheet\" type=\"text/css\" href=\"styles_index.css\" media=”screen”/>" << std::endl;
+
+
     std::cout << "VECTOR DE RESULTADO \n";
     for(const std::string& el : resultFile){
         std::cout << el << "\n";
-        outputFile << el << std::endl;
+        outputFile << "<p>" << el << "</p>" << std::endl;
     }
     outputFile << "</body>\n" << "</html>\n" << std::endl;
 
     outputFile.close();
 
 }
-
 
 
 //
