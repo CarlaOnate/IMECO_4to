@@ -1,0 +1,19 @@
+#lang racket
+
+(define (dis x1 y1 x2 y2)
+  (sqrt (+ (* (- x2 x1) (- x2 x1)) (* (- y2 y1) (- y2 y1)) ))
+  )
+; dis x1 y1 x2 y2 - A to B
+; dis x3 x1 y3 y1 - B to C
+; dis x3 x2 y3 y2 - C to A
+(define (quesesto x1 y1 x2 y2 x3 y3)
+  (define AtoB (dis x1 y1 x2 y2))
+  (define BtoC (dis x3 x1 y3 y1))
+  (define CtoA (dis x3 x2 y3 y2))
+  (cond
+    [(and (= AtoB BtoC)(= AtoB CtoA) (= BtoC CtoA)) "equilatero"]
+    [(or (= AtoB BtoC) (= AtoB CtoA) (= BtoC CtoA)) "isosceles"]
+    [(not (or (= AtoB BtoC) (= AtoB CtoA) (= BtoC CtoA))) "escaleno"]
+    ("no es un triangulo")
+  )
+)

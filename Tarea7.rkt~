@@ -1,0 +1,8 @@
+#lang racket
+
+(define (filtra-negativos lista)
+  (cond
+    ((null? lista) '())
+    ((< (car lista) 0) (filtra-negativos (cdr lista)))
+    (else (cons (car lista) (filtra-negativos (cdr lista))))))
+

@@ -2,17 +2,18 @@
 #include <regex>
 #include <fstream>
 #include <vector>
+#include <chrono>
 
 //Carla Oñate Gardella A01653555
 
-std::string identifierToHtml(std::string line, std::regex reg){
+std::string identifierToHtml(std::string line, std::regex reg){  // O(n)
     std::vector<std::string> reservedWords = {"define", "lambda", "if", "cond", "else", "true", "false", "nil", "car", "cdr", "cons", "list", "apply", "map", "let", "begin", "null?", "eq?", "set!"};
 
     //Store matches inside vector - we do this to be able to later remove duplicates of same match
     std::vector<std::string> nonDuplicatesMatches;
     std::regex_iterator<std::string::iterator> it (line.begin(), line.end(), reg);
     std::regex_iterator<std::string::iterator> end;
-    while(it != end){
+    while(it != end){   //O(n)
         nonDuplicatesMatches.push_back(it->str());
         ++it;
     }
@@ -24,7 +25,7 @@ std::string identifierToHtml(std::string line, std::regex reg){
     //Replace matches with HTML tag
     std::string replace;                                    //string to store html tag to be replaced later
     std::string replacedString = line;                      //modifications of line are being stored here
-    for(const auto& el : nonDuplicatesMatches){
+    for(const auto& el : nonDuplicatesMatches){  // O(n)
 
 //If match is reserved word then class is different
     if(std::find(reservedWords.begin(), reservedWords.end(), el) != reservedWords.end()){   //If match is found on reserved words vector
@@ -45,12 +46,12 @@ std::string identifierToHtml(std::string line, std::regex reg){
 
 
 
-std::string replaceMatchforHTML(std::string& line, std::regex reg, int type){
+std::string replaceMatchforHTML(std::string& line, std::regex reg, int type){ //  O(n)
     if(type == 0){
         //If string has ; then manually set tag to comment
         if(line.find(';') != std::string::npos){
             return "<span class=\"comment\">" + line + "</span>";
-        }
+        }  //
         return identifierToHtml(line, reg);   //Function to filter identifiers and reserved words to then replace them in the line.
     } else {
         //Switch to change span tag class depending the type of regex
@@ -80,7 +81,7 @@ std::string replaceMatchforHTML(std::string& line, std::regex reg, int type){
 }
 
 
-void createHTMLfile(const std::vector<std::string>& result){
+void createHTMLfile(const std::vector<std::string>& result){    // - O(n)
     std::fstream outputFile;
     outputFile.open("output.html", std::ios::out | std::ios::app);
     //We write the basic tags for any HTML file
@@ -89,7 +90,7 @@ void createHTMLfile(const std::vector<std::string>& result){
                   "<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n"
                   "<link href=\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\" rel=\"stylesheet\">" << std::endl;
     //We add the changes done to the file using the result vector
-    for(const std::string& el : result){
+    for(const std::string& el : result){   //O(n)
         outputFile << "<p>" << el << "</p>" << std::endl;   //Write the changes done to the file
     }
     //Add the styles for each lexema - tried to add a separate CSS file but it was not working. Also the design is not very nice but I'm not very good at choosing colors
@@ -133,7 +134,10 @@ void createHTMLfile(const std::vector<std::string>& result){
 }
 
 
-int main() {
+int main() {   //On^2+O(n)
+    auto start = std::chrono::high_resolution_clock::now();
+
+
     //Regex for lexemas
     std::regex decimalNumbersReg(R"(\b(?!.*?e|E)\d+(\.)*\d+)");
     std::regex expNumbersReg(R"(\d+\.\d+[e|E]\d)");
@@ -153,14 +157,20 @@ int main() {
         while(std::getline(file, line)){
             changedLine = line;
             std::vector<std::regex> regularExps = {identifierReg, specialsReg, decimalNumbersReg, expNumbersReg, parenthesisReg};
-            for(int i=0; i < regularExps.size(); i++){
+            for(int i=0; i < regularExps.size(); i++){  //O(n)
                 // 0 - Identifier, 1- Specials,  2 - Decimal, 3 - expNum, 4 - Parenthesis  - index from regex vector
-                changedLine = replaceMatchforHTML(changedLine, regularExps[i], i);
+                changedLine = replaceMatchforHTML(changedLine, regularExps[i], i);  //O(n)
             }
             resultFile.push_back(changedLine);  //push the changes done to the line
         }
      file.close();
     }
 
-    createHTMLfile(resultFile);
+    createHTMLfile(resultFile);  //O(n)
+    auto stop = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+
+// To get the value of duration use the count()
+// member function on the duration object
+    std::cout << "Tiempo: " << duration.count() << std::endl;
 }
