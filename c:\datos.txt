@@ -1,2 +1,2 @@
-12-define ( example []
+1
 

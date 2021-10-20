@@ -17,7 +17,7 @@
 (define outFile (open-output-file "c:\\datosSalida.txt" #:exists 'replace))
 
 ;lista transiciones
-(define transiciones '((0 #\space -1) (0 "number" 1) (1 "number" 1) (1 "letter-e" 101) (1 #\e 101) (1 "special" 101) (1 #\space 101)
+(define transiciones '((0 #\space -1) (0 "number" 1) (1 "number" 1) (1 "letter-e" 101) (1 #\e 101) (1 "special" 101) (1 #\space 101) (1 "eof" 101) (1 #\newline 101)
                        (1 #\. 2) (2 "number" 2) (2 "letter-e" 102) (2 "special" 102) (2 #\space 102) (2 #\newline 102) (2 "eof" 102) (2 #\e 3) (3 "number" 103)
                        (0 #\" 4) (4 "letter-e" 4) (4 #\e 4) (4 "number" 4) (4 #\space 4) (4 "special" 4) (4 #\" 104)
                        (0 "letter-e" 5) (0 #\e 5) (5 "letter-e" 5) (5 #\e 5) (5 "number" 5) (5 "special" 5) (5 #\space 105) (5 "eof" 105) (5 #\newline 105)
