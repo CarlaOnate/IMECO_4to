@@ -8,8 +8,8 @@
                      (else (fileToList (read-char arch) (append lista (list char)))))))
 
 ;Cosas globales
-(define estadosFinales '(101 102 103 104 105 106 107 108 109 200 201 202 203 204 205 206 207))
-(define estados* '(101 102 105 106 107 108 200 201))
+(define estadosFinales '(101 102 103 104 105 106 200))
+(define estados* '(101 102 105 209))
 
 (define arch (open-input-file "c:\\datos.txt")) ; arbir archivo
 (define listFile (fileToList (read-char arch) '())) ; lista con todo el archivo
@@ -47,32 +47,52 @@
          (cond
            ((find el '(#\a #\b #\c #\d #\f #\g #\h #\i #\j #\k #\l #\m #\n #\o #\p #\q #\r #\s #\t #\u #\v #\w #\x #\y #\z #\A #\B #\C #\D #\F #\G #\H #\I #\J #\K #\L #\M #\N #\O #\P #\Q #\R #\S #\T #\U #\V #\W #\X #\Y #\Z)) "letter-e")
            ((find el '(#\1 #\2 #\3 #\4 #\5 #\6 #\7 #\8 #\9 #\0)) "number")
-           ((find el '(#\( #\) #\{ #\} #\[ #\] #\+ #\- #\* #\/ #\# #\\ #\' #\;)) "special")
+           ((find el '(#\( #\) #\{ #\} #\[ #\] #\+ #\- #\* #\/ #\# #\\ #\' #\; #\=)) "special")
            ((eof-object? el) "eof")
            (else el))))
 
+(define estado*? (lambda (state)
+                         (if (find (car state) estados*) #t #f)))
+
+
+;Cuando pattern solo regresa estado
 ;(findPattern listFile 0 '() '())
-(define findPattern (lambda (fileInList state word resFile) ; state es una lista -> (state '(p a t r o n)) -> regresa '(101 (#\1 #\2 #\space))
+(define findPattern (lambda (fileInList state word resFile)
                          (cond
-                           ((null? fileInList) resFile)
-                           ((and (pair? state) (> (car state) 100)) (findPattern (cdr fileInList) 0 '() (append resFile (list state))))
-                           ((and (pair? state) (= (car state) -1)) (findPattern (cdr fileInList) 0 '() (append resFile (list state))))
-                           ((detectSpecial (car fileInList)) (findPattern fileInList (pattern transiciones (append word (list (car fileInList))) 0 '()) '() resFile))
+                            ((null? fileInList) resFile)
+                           ((and (pair? state) (> (car state) 100)) (if (estado*? state)
+                                                                         (findPattern fileInList (pattern transiciones (list (car fileInList)) 0) (list (car fileInList)) (append resFile (list (list state word))))
+                                                                         (findPattern (cdr fileInList) 0 '() (append resFile (list (list state word))))))
+                           ((and (pair? state) (= (car state) -1)) (findPattern (cdr fileInList) 0 '() (append resFile (list (list state word)))))
+                           ((detectSpecial (car fileInList)) (if (null? word) (findPattern fileInList (pattern transiciones (append word (list (car fileInList))) 0) (car fileInList) resFile) (findPattern fileInList (pattern transiciones (append word (list (car fileInList))) 0) word resFile)))
                            (else (findPattern (cdr fileInList) state (append word (list (car fileInList))) resFile)))))
+                           
+
+
 
 (define detectSpecial (lambda (el)
                          (if
-                           (or (eq? el #\() (eq? el #\)) (eq? el #\{) (eq? el #\}) (eq? el #\[) (eq? el #\]) (eq? el #\+) (eq? el #\-) (eq? el #\*) (eq? el #\/) (eq? el #\#) (eq? el #\\) (eq? el #\') (eq? el #\space)) #t #f))) 
+                           (or (eq? el #\() (eq? el #\)) (eq? el #\{) (eq? el #\}) (eq? el #\[) (eq? el #\]) (eq? el #\+) (eq? el #\-) (eq? el #\*) (eq? el #\/)
+                               (eq? el #\#) (eq? el #\\) (eq? el #\') (eq? el #\=) (eq? el #\space) (eq? el #\newline)) #t #f))) 
 
 
 ; (pattern transiciones listFile 0 '())
 ; (pattern transiciones '(#\1 #\2 #\space) 0 '())
-(define (pattern afd simbolos estado listRes) ; -> regresa '(101 (#\1 #\2 #\space))
+(define (pattern afd simbolos estado) ; -> regresa '(101 (#\1 #\2 #\space))
   (cond
-    ((> estado 100) (list estado (list->string listRes)))
-    ((= estado -1) (list -1 (list->string listRes)))
-    ((null? simbolos) (list -1 (list->string listRes)))
-    (else (pattern afd (cdr simbolos) (followAFD afd (letterToSymbol (car simbolos)) estado) (append listRes (list (car simbolos))))))) 
+    ((> estado 100) (list estado))
+    ((= estado -1) (list -1))
+    ((null? simbolos) (list -1))
+    (else (pattern afd (cdr simbolos) (followAFD afd (letterToSymbol (car simbolos)) estado))))) 
+
+
+;Con listRes
+;(define (pattern afd simbolos estado listRes) ; -> regresa '(101 (#\1 #\2 #\space))
+;  (condm
+;    ((> estado 100) (list estado (list->string listRes)))
+;    ((= estado -1) (list -1 (list->string listRes)))
+;    ((null? simbolos) (list -1 (list->string listRes)))
+;    (else (pattern afd (cdr simbolos) (followAFD afd (letterToSymbol (car simbolos)) estado) (append listRes (list (car simbolos)))))))
 
 
 ;Esta función usa un simbolo y estado actual para saber el sig estado y regresarlo.
