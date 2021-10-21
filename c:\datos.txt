@@ -1,2 +1,4 @@
-] abc [123= 
+(defn Example []
+(println "Hello World"))
+;; This program displays Hello World
 
