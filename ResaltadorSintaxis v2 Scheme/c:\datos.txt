@@ -1,0 +1,4 @@
+;; This program displays Hello World
+
+(defn Example []
+   (println "Hello World"))

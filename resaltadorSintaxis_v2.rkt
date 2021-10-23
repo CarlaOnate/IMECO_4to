@@ -60,7 +60,7 @@
 (define findPattern (lambda (fileInList state word resFile)
                          (cond
                             ;((null? fileInList) resFile)
-                           ((null? fileInList) (writeHTML resFile))
+                           ((null? fileInList) (writeHTML (append resFile (list (list (list "end"))))))
                            ((and (pair? state) (> (car state) 100)) (if (estado*? state)
                                                                          (findPattern fileInList (pattern transiciones (list (car fileInList)) 0) (list (car fileInList)) (append resFile (list (list state word))))
                                                                          (findPattern (cdr fileInList) 0 '() (append resFile (list (list state word))))))
@@ -94,8 +94,9 @@
     ((not (pair? (car afd))) (if (and (eq? (cadr afd) simbolo) (eq? (car afd) estado)) (caddr afd) -1))
     (else (followAFD (cdr afd) simbolo estado))))
 
+
 (define writeHTML (lambda (resList)
-                    (for-each (lambda (el) (write (htmlTag el) outFile)) resList)));tenemos que cerrar el port de output para poder ver el resultado del archivo
+                    (for-each (lambda (el) (if (eq? (caar el) "end") (close-output-port outFile) (write (htmlTag el) outFile))) resList))) 
 
 ;(findPattern listFile 0 '() '())
 (define htmlTag (lambda (listEl) ;-> recibe '((101) (#\1 #\2 #\3))

@@ -1,4 +1,0 @@
-(defn Example []
-(println "Hello World"))
-;; This program displays Hello World
-
