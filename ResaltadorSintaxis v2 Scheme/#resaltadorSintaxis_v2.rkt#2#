@@ -48,7 +48,7 @@
                          (if (pair? (memq (car state) estados*)) #t #f)))
 
 
-(define findPattern (lambda (file state word res) ;O(n) por ser complejidad mayor dentro de la función
+(define findPattern (lambda (file state word res) ;O(n) por ser complejidad mayor dentro de la función res => ((101), (#\c))
                     (cond
                       ((null? file) (writeHTML (append res (list (list (list state) word)) (list (list (list "end")))))) ;O(1)
                       ((= state -1) (findPattern (cdr file) 0 (append word (list (car file))) res)) ;O(1)
@@ -110,6 +110,7 @@
                            ((eq? (caar listEl) 201) "<br>")
                            ((and (eq? (caar listEl) -1) (eq? (cadr listEl) #\space)) "  ")
                            (else (string-append "<span style=\"color:black\">"(list->string (cadr listEl))"</span>")))))
+
 
 ;Llama función principal como lo necesita
 (define main (lambda () ;O(1)
