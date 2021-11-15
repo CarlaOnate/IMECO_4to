@@ -1,6 +1,6 @@
 ;cmd+alt+l -> repl windo
 
-(ns probando.core
+(ns Tareas.Tarea9
   (:gen-class))
 
 (defn -main

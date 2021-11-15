@@ -1,7 +1,3 @@
-=> 
-1.2 
-1.2e3 
-
 ;; This program displays Hello World
 (defn Example []
    (println "Hello World"))
@@ -111,3 +107,11 @@ x ; => 1
   (str "Hello " name))
 (print-and-say-hello "Jeff") ;=> "Hello Jeff" (prints "Saying hello to Jeff")
 ; Tomado de https://learnxinyminutes.com/docs/clojure/
+
+; Nesting forms works as you expect
+(+ 1 (- 3 2)) ; = 1 + (3 - 2) => 2
+
+1.2 
+1.2e3 
+1.2 e 3 
+1.2 e3 
