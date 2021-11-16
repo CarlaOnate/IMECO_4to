@@ -1,0 +1,601 @@
+REPL Instructions
+
+Code can be entered at the bottom and executed by pressing shift+enter.
+
+Try it now by typing (+ 1 1) in the bottom section and pressing shift+enter.
+
+Working in another Clojure file and sending forms to the REPL is the most efficient way to work. Use the following key bindings to send code to the REPL. See the settings for more keybindings.
+
+ctrl-alt-, then b
+Execute block. Finds the block of Clojure code your cursor is in and executes that.
+
+ctrl-alt-, s
+Executes the selection. Sends the selected text to the REPL.
+
+You can disable this help text in the settings.
+Starting REPL with lein in /Users/carla/Documents/ITC-Tec/Ago-Dic21/IMECO_Compu/IMECO_4to/ResaltadorSintaxis_v3/resaltadorv3
+nREPL server started on port 64180 on host 127.0.0.1 - nrepl://127.0.0.1:64180
+Refreshing code...
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(-main)
+Syntax error compiling at (/private/var/folders/5c/43_1g8s55f3cvpcthrmsmwt40000gn/T/form-init424309973999737877.clj:1:1).
+Unable to resolve symbol: -main in this context
+user=>
+nil
+(in-ns resaltadorv3.core)
+Syntax error (ClassNotFoundException) compiling at (/private/var/folders/5c/43_1g8s55f3cvpcthrmsmwt40000gn/T/form-init424309973999737877.clj:1:1).
+resaltadorv3.core
+(in-ns 'resaltadorv3.core)
+resaltadorv3.core=>
+#object[clojure.lang.Namespace 0x662f9991 "resaltadorv3.core"]
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+estados*
+resaltadorv3.core=>
+(101 102 105 209)
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+reservedWords
+resaltadorv3.core=>
+("println" "def" "if" "cond" "defn" "fn" "else" "true" "false" "nil" "cons" "first" "second" "rest" "next" "concat" "map" "apply" "filter" "reduce" "pmap" "let" "seq" "conj" "do" "and" "or" "not" "not=" "quote" "empty?" "take" "range" "doall" "time" "future" "delay" "promise")
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+transient
+resaltadorv3.core=>
+#object[clojure.core$transient 0x1faa05a "clojure.core$transient@1faa05a"]
+transiciones
+resaltadorv3.core=>
+((0 \space 0) (0 \newline 201) (0 "number" 1) (1 "number" 1) (1 "letter-e" 101) (1 \e 101) (1 "special" 101) (1 "parenthesis" 101) (1 \< 101) (1 \= 101) (1 \> 101) (1 \; 101) (1 \space 101) (1 \newline 101) (1 \. 2) (2 "number" 2) (2 "letter-e" 102) (2 "special" 102) (2 "parenthesis" 102) (2 \space 102) (2 \newline 102) (2 \e 3) (3 "number" 103) (0 \" 4) (4 "letter-e" 4) (4 \e 4) (4 "number" 4) (4 \space 4) (4 "special" 4) (4 "parenthesis" 104) (4 \" 104) (0 "letter-e" 5) (0 \e 5) (5 "letter-e" 5) (5 \e 5) (5 "number" 5) (5 "special" 5) (5 "parenthesis" 105) (5 \space 105) (5 \; 105) (5 \. 105) (5 \newline 105) (0 \; 6) (6 \; 6) (6 "letter-e" 6) (6 \e 6) (6 "number" 6) (6 \" 6) (6 "special" 6) (6 "parenthesis" 6) (6 \< 6) (6 \= 6) (6 \> 6) (6 \space 6) (6 \. 6) (6 \newline 106) (0 \< 7) (0 \> 7) (7 \= 208) (7 "letter-e" 200) (7 \e 200) (7 "number" 200) (7 "special" 200) (7 "parenthesis" 200) (7 \space 200) (7 \newline 200) (0 "special" 200) (0 "parenthesis" 200) (0 \. 200))
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(letterToSymbol \a)
+resaltadorv3.core=>
+"letter-e"
+(letterToSymbol \')
+resaltadorv3.core=>
+"special"
+(letterToSymbol \;)
+resaltadorv3.core=>
+\;
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading ()
+Refresh complete
+(estado*? 101)
+Syntax error compiling at (/private/var/folders/5c/43_1g8s55f3cvpcthrmsmwt40000gn/T/form-init424309973999737877.clj:1:1).
+Unable to resolve symbol: estado*? in this context
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(estado*? 101)
+Execution error (IllegalArgumentException) at resaltadorv3.core/estado*?$fn (core.clj:36).
+Don't know how to create ISeq from: java.lang.Long
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(estado*? '(101))
+resaltadorv3.core=>
+true
+(estado*? '(102))
+resaltadorv3.core=>
+true
+(estado*? '(103))
+resaltadorv3.core=>
+false
+(estado*? '(104))
+resaltadorv3.core=>
+false
+(estado*? '(105))
+resaltadorv3.core=>
+true
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error compiling at (resaltadorv3/core.clj:42:16).
+Refresh complete
+(findPattern '(\a \v \newline) 0 '() '())
+Syntax error compiling at (/private/var/folders/5c/43_1g8s55f3cvpcthrmsmwt40000gn/T/form-init424309973999737877.clj:1:5).
+Unable to resolve symbol: findPattern in this context
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error compiling at (resaltadorv3/core.clj:42:16).
+Refresh complete
+"abd"[2]
+resaltadorv3.core=>
+[2]
+(seq "((defn archivo de clojure 1 2 + - ;))")
+resaltadorv3.core=>
+(\( \( \d \e \f \n \space \a \r \c \h \i \v \o \space \d \e \space \c \l \o \j \u \r \e \space \1 \space \2 \space \+ \space \- \space \; \) \))
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error compiling at (resaltadorv3/core.clj:12:1).
+Refresh complete
+(with-open [rdr (reader "datos.txt")]
+  (doseq [line (line-seq rdr)] (seq line)))
+Syntax error compiling at (/private/var/folders/5c/43_1g8s55f3cvpcthrmsmwt40000gn/T/form-init424309973999737877.clj:1:21).
+Unable to resolve symbol: reader in this context
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error compiling at (resaltadorv3/core.clj:12:1).
+Refresh complete
+(use 'clojure.java.io)
+resaltadorv3.core=>
+nil
+(with-open [rdr (reader "datos.txt")]
+  (doseq [line (line-seq rdr)] (seq line)))
+Execution error (FileNotFoundException) at java.io.FileInputStream/open0 (FileInputStream.java:-2).
+datos.txt (No such file or directory)
+(with-open [rdr (reader "/datos.txt")]
+  (doseq [line (line-seq rdr)] (seq line)))
+Execution error (FileNotFoundException) at java.io.FileInputStream/open0 (FileInputStream.java:-2).
+/datos.txt (No such file or directory)
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error compiling at (resaltadorv3/core.clj:12:1).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error compiling at (resaltadorv3/core.clj:12:1).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error compiling at (resaltadorv3/core.clj:12:1).
+Refresh complete
+(concat '() (seq "abcdefgji"))
+resaltadorv3.core=>
+(\a \b \c \d \e \f \g \j \i)
+(concat '(\v \h \j \k) (seq "abcdefgji"))
+resaltadorv3.core=>
+(\v \h \j \k \a \b \c \d \e \f \g \j \i)
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error compiling at (resaltadorv3/core.clj:12:1).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error compiling at (resaltadorv3/core.clj:12:1).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error macroexpanding at (core.clj:15:22).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error compiling at (resaltadorv3/core.clj:50:16).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+fileToList
+resaltadorv3.core=>
+(\; \; \space \T \h \i \s \space \p \r \o \g \r \a \m \space \d \i \s \p \l \a \y \s \space \H \e \l \l \o \space \W \o \r \l \d \newline \( \d \e \f \n \space \E \x \a \m \p \l \e \space \[ \] \newline \space \space \space \( \p \r \i \n \t \l \n \space \" \H \e \l \l \o \space \W \o \r \l \d \" \) \) \newline \; \space \C \o \m \m \e \n \t \s \space \s \t \a \r \t \space \w \i \t \h \space \s \e \m \i \c \o \l \o \n \s \. \newline \; \space \T \h \e \space \c \l \o \j \u \r \e \space \r \e \a \d \e \r \space \a \s \s \u \m \e \s \space \t \h \a \t \space \t \h \e \space \f \i \r \s \t \space \t \h \i \n \g \space \i \s \space \a \newline \; \space \f \u \n \c \t \i \o \n \space \o \r \space \m \a \c \r \o \space \t \o \space \c \a \l \l \, \space \a \n \d \space \t \h \e \space \r \e \s \t \space \a \r \e \space \a \r \g \u \m \e \n \t \s \. \newline \; \space \M \o \r \e \space \b \a \s \i \c \space \e \x \a \m \p \l \e \s \: \newline \; \space \M \a \t \h \space \i \s \space \s \t \r \a \i \g \h \t \f \o \r \w \a \r \d \newline \( \+ \space \1 \space \1 \) \space \; \space \= \> \space \2 \newline \( \- \space \2 \space \1 \) \space \; \space \= \> \space \1 \newline \( \* \space \1 \space \2 \) \space \; \space \= \> \space \2 \newline \( \/ \space \2 \space \1 \) \space \; \space \= \> \space \2 \newline \; \space \E \q \u \a \l \i \t \y \space \i \s \space \= \newline \( \= \space \1 \space \1 \) \space \; \space \= \> \space \t \r \u \e \newline \( \= \space \2 \space \1 \) \space \; \space \= \> \space \f \a \l \s \e \newline \; \space \Y \o \u \space \n \e \e \d \space \n \o \t \space \f \o \r \space \l \o \g \i \c \, \space \t \o \o \newline \( \n \o \t \space \t \r \u \e \) \space \; \space \= \> \space \f \a \l \s \e \newline \; \space \N \e \s \t \i \n \g \space \f \o \r \m \s \space \w \o \r \k \s \space \a \s \space \y \o \u \space \e \x \p \e \c \t \newline \( \+ \space \1 \space \( \- \space \3 \space \2 \) \) \space \; \space \= \space \1 \space \+ \space \( \3 \space \- \space \2 \) \space \= \> \space \2 \newline \; \space \T \y \p \e \s \newline \; \; \; \; \; \; \; \; \; \; \; \; \; \newline \; \space \C \l \o \j \u \r \e \space \u \s \e \s \space \J \a \v \a \' \s \space \o \b \j \e \c \t \space \t \y \p \e \s \space \f \o \r \space \b \o \o \l \e \a \n \s \, \space \s \t \r \i \n \g \s \space \a \n \d \space \n \u \m \b \e \r \s \. \newline \; \space \I \f \space \y \o \u \space \w \a \n \t \space \t \o \space \c \r \e \a \t \e \space \a \space \l \i \t \e \r \a \l \space \l \i \s \t \space \o \f \space \d \a \t \a \, \space \u \s \e \space \' \space \t \o \space \s \t \o \p \space \i \t \space \f \r \o \m \newline \; \space \b \e \i \n \g \space \e \v \a \l \u \a \t \e \d \newline \' \( \+ \space \1 \space \2 \) \space \; \space \= \> \space \( \+ \space \1 \space \2 \) \newline \; \space \( \s \h \o \r \t \h \a \n \d \space \f \o \r \space \( \q \u \o \t \e \space \( \+ \space \1 \space \2 \) \) \) \newline \; \space \Y \o \u \space \c \a \n \space \e \v \a \l \space \a \space \q \u \o \t \e \d \space \l \i \s \t \newline \( \e \v \a \l \space \' \( \+ \space \1 \space \2 \) \) \space \; \space \= \> \space \3 \newline \; \space \C \o \l \l \e \c \t \i \o \n \s \space \& \space \S \e \q \u \e \n \c \e \s \newline \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \newline \; \space \L \i \s \t \s \space \a \r \e \space \l \i \n \k \e \d \- \l \i \s \t \space \d \a \t \a \space \s \t \r \u \c \t \u \r \e \s \, \space \w \h \i \l \e \space \V \e \c \t \o \r \s \space \a \r \e \space \a \r \r \a \y \- \b \a \c \k \e \d \. \newline \; \space \A \space \l \i \s \t \space \w \o \u \l \d \space \b \e \space \w \r \i \t \t \e \n \space \a \s \space \j \u \s \t \space \( \1 \space \2 \space \3 \) \, \space \b \u \t \space \w \e \space \h \a \v \e \space \t \o \space \q \u \o \t \e \newline \; \space \i \t \space \t \o \space \s \t \o \p \space \t \h \e \space \r \e \a \d \e \r \space \t \h \i \n \k \i \n \g \space \i \t \' \s \space \a \space \f \u \n \c \t \i \o \n \. \newline \; \space \A \l \s \o \, \space \( \l \i \s \t \space \1 \space \2 \space \3 \) \space \i \s \space \t \h \e \space \s \a \m \e \space \a \s \space \' \( \1 \space \2 \space \3 \) \newline \; \space \" \C \o \l \l \e \c \t \i \o \n \s \" \space \a \r \e \space \j \u \s \t \space \g \r \o \u \p \s \space \o \f \space \d \a \t \a \newline \; \space \B \o \t \h \space \l \i \s \t \s \space \a \n \d \space \v \e \c \t \o \r \s \space \a \r \e \space \c \o \l \l \e \c \t \i \o \n \s \: \newline \( \c \o \l \l \? \space \' \( \1 \space \2 \space \3 \) \) \space \; \space \= \> \space \t \r \u \e \newline \( \c \o \l \l \? \space \[ \1 \space \2 \space \3 \] \) \space \; \space \= \> \space \t \r \u \e \newline \; \space \" \S \e \q \u \e \n \c \e \s \" \space \( \s \e \q \s \) \space \a \r \e \space \a \b \s \t \r \a \c \t \space \d \e \s \c \r \i \p \t \i \o \n \s \space \o \f \space \l \i \s \t \s \space \o \f \space \d \a \t \a \. \newline \; \space \O \n \l \y \space \l \i \s \t \s \space \a \r \e \space \s \e \q \s \. \newline \( \s \e \q \? \space \' \( \1 \space \2 \space \3 \) \) \space \; \space \= \> \space \t \r \u \e \newline \( \s \e \q \? \space \[ \1 \space \2 \space \3 \] \) \space \; \space \= \> \space \f \a \l \s \e \newline \; \space \A \space \s \e \q \space \n \e \e \d \space \o \n \l \y \space \p \r \o \v \i \d \e \space \a \n \space \e \n \t \r \y \space \w \h \e \n \space \i \t \space \i \s \space \a \c \c \e \s \s \e \d \. \newline \; \space \S \o \, \space \s \e \q \s \space \w \h \i \c \h \space \c \a \n \space \b \e \space \l \a \z \y \space \- \- \space \t \h \e \y \space \c \a \n \space \d \e \f \i \n \e \space \i \n \f \i \n \i \t \e \space \s \e \r \i \e \s \: \newline \( \r \a \n \g \e \space \4 \) \space \; \space \= \> \space \( \0 \space \1 \space \2 \space \3 \) \newline \( \r \a \n \g \e \) \space \; \space \= \> \space \( \0 \space \1 \space \2 \space \3 \space \4 \space \. \. \. \) \space \( \a \n \space \i \n \f \i \n \i \t \e \space \s \e \r \i \e \s \) \newline \( \t \a \k \e \space \4 \space \( \r \a \n \g \e \) \) \space \; \space \space \( \0 \space \1 \space \2 \space \3 \) \newline \; \space \U \s \e \space \c \o \n \s \space \t \o \space \a \d \d \space \a \n \space \i \t \e \m \space \t \o \space \t \h \e \space \b \e \g \i \n \n \i \n \g \space \o \f \space \a \space \l \i \s \t \space \o \r \space \v \e \c \t \o \r \newline \( \c \o \n \s \space \4 \space \[ \1 \space \2 \space \3 \] \) \space \; \space \= \> \space \( \4 \space \1 \space \2 \space \3 \) \newline \( \c \o \n \s \space \4 \space \' \( \1 \space \2 \space \3 \) \) \space \; \space \= \> \space \( \4 \space \1 \space \2 \space \3 \) \newline \; \space \C \o \n \j \space \w \i \l \l \space \a \d \d \space \a \n \space \i \t \e \m \space \t \o \space \a \space \c \o \l \l \e \c \t \i \o \n \space \i \n \space \t \h \e \space \m \o \s \t \space \e \f \f \i \c \i \e \n \t \space \w \a \y \. \newline \; \space \F \o \r \space \l \i \s \t \s \, \space \t \h \e \y \space \i \n \s \e \r \t \space \a \t \space \t \h \e \space \b \e \g \i \n \n \i \n \g \. \space \F \o \r \space \v \e \c \t \o \r \s \, \space \t \h \e \y \space \i \n \s \e \r \t \space \a \t \space \t \h \e \space \e \n \d \. \newline \( \c \o \n \j \space \[ \1 \space \2 \space \3 \] \space \4 \) \space \; \space \= \> \space \[ \1 \space \2 \space \3 \space \4 \] \newline \( \c \o \n \j \space \' \( \1 \space \2 \space \3 \) \space \4 \) \space \; \space \= \> \space \( \4 \space \1 \space \2 \space \3 \) \newline \; \space \U \s \e \space \c \o \n \c \a \t \space \t \o \space \a \d \d \space \l \i \s \t \s \space \o \r \space \v \e \c \t \o \r \s \space \t \o \g \e \t \h \e \r \newline \( \c \o \n \c \a \t \space \[ \1 \space \2 \] \space \' \( \3 \space \4 \) \) \space \; \space \= \> \space \( \1 \space \2 \space \3 \space \4 \) \newline \; \space \U \s \e \space \f \i \l \t \e \r \, \space \m \a \p \space \t \o \space \i \n \t \e \r \a \c \t \space \w \i \t \h \space \c \o \l \l \e \c \t \i \o \n \s \newline \( \m \a \p \space \i \n \c \space \[ \1 \space \2 \space \3 \] \) \space \; \space \= \> \space \( \2 \space \3 \space \4 \) \newline \( \f \i \l \t \e \r \space \e \v \e \n \? \space \[ \1 \space \2 \space \3 \] \) \space \; \space \= \> \space \( \2 \) \newline \; \space \U \s \e \space \r \e \d \u \c \e \space \t \o \space \r \e \d \u \c \e \space \t \h \e \m \newline \( \r \e \d \u \c \e \space \+ \space \[ \1 \space \2 \space \3 \space \4 \] \) \newline \; \space \= \space \( \+ \space \( \+ \space \( \+ \space \1 \space \2 \) \space \3 \) \space \4 \) \newline \; \space \= \> \space \1 \0 \newline \; \space \R \e \d \u \c \e \space \c \a \n \space \t \a \k \e \space \a \n \space \i \n \i \t \i \a \l \- \v \a \l \u \e \space \a \r \g \u \m \e \n \t \space \t \o \o \newline \( \r \e \d \u \c \e \space \c \o \n \j \space \[ \] \space \' \( \3 \space \2 \space \1 \) \) \newline \; \space \= \space \( \c \o \n \j \space \( \c \o \n \j \space \( \c \o \n \j \space \[ \] \space \3 \) \space \2 \) \space \1 \) \newline \; \space \= \> \space \[ \3 \space \2 \space \1 \] \newline \; \space \F \u \n \c \t \i \o \n \s \newline \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \newline \newline \; \space \U \s \e \space \f \n \space \t \o \space \c \r \e \a \t \e \space \n \e \w \space \f \u \n \c \t \i \o \n \s \. \space \A \space \f \u \n \c \t \i \o \n \space \a \l \w \a \y \s \space \r \e \t \u \r \n \s \newline \; \space \i \t \s \space \l \a \s \t \space \s \t \a \t \e \m \e \n \t \. \newline \( \f \n \space \[ \] \space \" \H \e \l \l \o \space \W \o \r \l \d \" \) \space \; \space \= \> \space \f \n \newline \; \space \( \Y \o \u \space \n \e \e \d \space \e \x \t \r \a \space \p \a \r \e \n \s \space \t \o \space \c \a \l \l \space \i \t \) \newline \( \( \f \n \space \[ \] \space \" \H \e \l \l \o \space \W \o \r \l \d \" \) \) \space \; \space \= \> \space \" \H \e \l \l \o \space \W \o \r \l \d \" \newline \; \space \Y \o \u \space \c \a \n \space \c \r \e \a \t \e \space \a \space \v \a \r \space \u \s \i \n \g \space \d \e \f \newline \( \d \e \f \space \x \space \1 \) \newline \x \space \; \space \= \> \space \1 \newline \; \space \A \s \s \i \g \n \space \a \space \f \u \n \c \t \i \o \n \space \t \o \space \a \space \v \a \r \newline \( \d \e \f \space \h \e \l \l \o \- \w \o \r \l \d \space \( \f \n \space \[ \] \space \" \H \e \l \l \o \space \W \o \r \l \d \" \) \) \newline \( \h \e \l \l \o \- \w \o \r \l \d \) \space \; \space \= \> \space \" \H \e \l \l \o \space \W \o \r \l \d \" \newline \; \space \Y \o \u \space \c \a \n \space \s \h \o \r \t \e \n \space \t \h \i \s \space \p \r \o \c \e \s \s \space \b \y \space \u \s \i \n \g \space \d \e \f \n \newline \( \d \e \f \n \space \h \e \l \l \o \- \w \o \r \l \d \space \[ \] \space \" \H \e \l \l \o \space \W \o \r \l \d \" \) \newline \; \space \T \h \e \space \[ \] \space \i \s \space \t \h \e \space \l \i \s \t \space \o \f \space \a \r \g \u \m \e \n \t \s \space \f \o \r \space \t \h \e \space \f \u \n \c \t \i \o \n \. \newline \( \d \e \f \n \space \h \e \l \l \o \space \[ \n \a \m \e \] \newline \space \space \( \s \t \r \space \" \H \e \l \l \o \space \" \space \n \a \m \e \) \) \newline \( \h \e \l \l \o \space \" \S \t \e \v \e \" \) \space \; \space \= \> \space \" \H \e \l \l \o \space \S \t \e \v \e \" \newline \; \space \Y \o \u \space \c \a \n \space \a \l \s \o \space \u \s \e \space \t \h \i \s \space \s \h \o \r \t \h \a \n \d \space \t \o \space \c \r \e \a \t \e \space \f \u \n \c \t \i \o \n \s \: \newline \( \d \e \f \space \h \e \l \l \o \2 \space \# \( \s \t \r \space \" \H \e \l \l \o \space \" \space \% \1 \) \) \newline \( \h \e \l \l \o \2 \space \" \J \u \l \i \e \" \) \space \; \space \= \> \space \" \H \e \l \l \o \space \J \u \l \i \e \" \newline \; \space \U \s \e \f \u \l \space \f \o \r \m \s \newline \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \newline \; \space \L \o \g \i \c \space \c \o \n \s \t \r \u \c \t \s \space \i \n \space \c \l \o \j \u \r \e \space \a \r \e \space \j \u \s \t \space \m \a \c \r \o \s \, \space \a \n \d \space \l \o \o \k \space \l \i \k \e \newline \; \space \e \v \e \r \y \t \h \i \n \g \space \e \l \s \e \newline \( \i \f \space \f \a \l \s \e \space \" \a \" \space \" \b \" \) \space \; \space \= \> \space \" \b \" \newline \( \i \f \space \f \a \l \s \e \space \" \a \" \) \space \; \space \= \> \space \n \i \l \newline \; \space \U \s \e \space \l \e \t \space \t \o \space \c \r \e \a \t \e \space \t \e \m \p \o \r \a \r \y \space \b \i \n \d \i \n \g \s \newline \( \l \e \t \space \[ \a \space \1 \space \b \space \2 \] \newline \space \space \( \> \space \a \space \b \) \) \space \; \space \= \> \space \f \a \l \s \e \newline \; \space \G \r \o \u \p \space \s \t \a \t \e \m \e \n \t \s \space \t \o \g \e \t \h \e \r \space \w \i \t \h \space \d \o \newline \( \d \o \newline \space \space \( \p \r \i \n \t \space \" \H \e \l \l \o \" \) \newline \space \space \" \W \o \r \l \d \" \) \space \; \space \= \> \space \" \W \o \r \l \d \" \space \( \p \r \i \n \t \s \space \" \H \e \l \l \o \" \) \newline \; \space \F \u \n \c \t \i \o \n \s \space \h \a \v \e \space \a \n \space \i \m \p \l \i \c \i \t \space \d \o \newline \( \d \e \f \n \space \p \r \i \n \t \- \a \n \d \- \s \a \y \- \h \e \l \l \o \space \[ \n \a \m \e \] \newline \space \space \( \p \r \i \n \t \space \" \S \a \y \i \n \g \space \h \e \l \l \o \space \t \o \space \" \space \n \a \m \e \) \newline \space \space \( \s \t \r \space \" \H \e \l \l \o \space \" \space \n \a \m \e \) \) \newline \( \p \r \i \n \t \- \a \n \d \- \s \a \y \- \h \e \l \l \o \space \" \J \e \f \f \" \) \space \; \= \> \space \" \H \e \l \l \o \space \J \e \f \f \" \space \( \p \r \i \n \t \s \space \" \S \a \y \i \n \g \space \h \e \l \l \o \space \t \o \space \J \e \f \f \" \) \newline \; \space \T \o \m \a \d \o \space \d \e \space \h \t \t \p \s \: \/ \/ \l \e \a \r \n \x \i \n \y \m \i \n \u \t \e \s \. \c \o \m \/ \d \o \c \s \/ \c \l \o \j \u \r \e \/ \newline \newline \; \space \N \e \s \t \i \n \g \space \f \o \r \m \s \space \w \o \r \k \s \space \a \s \space \y \o \u \space \e \x \p \e \c \t \newline \( \+ \space \1 \space \( \- \space \3 \space \2 \) \) \space \; \space \= \space \1 \space \+ \space \( \3 \space \- \space \2 \) \space \= \> \space \2 \newline \newline \1 \. \2 \space \newline \1 \. \2 \e \3 \space \newline \1 \. \2 \space \e \space \3 \space \newline \1 \. \2 \space \e \3 \space)
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading ()
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error compiling at (resaltadorv3/core.clj:48:16).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error compiling at (resaltadorv3/core.clj:54:35).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error compiling at (resaltadorv3/core.clj:54:35).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error compiling at (resaltadorv3/core.clj:53:35).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error compiling at (resaltadorv3/core.clj:53:35).
+Refresh complete
+(defn lol1 [file state word res] 
+  (lol1 (next file) (followAFD transiciones (letterToSymbol (first file)) state) (concat word (list (first file))) res))
+
+
+  
+Syntax error compiling at (/private/var/folders/5c/43_1g8s55f3cvpcthrmsmwt40000gn/T/form-init424309973999737877.clj:2:21).
+Unable to resolve symbol: followAFD in this context
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+fileToList
+resaltadorv3.core=>
+(\; \; \space \T \h \i \s \space \p \r \o \g \r \a \m \space \d \i \s \p \l \a \y \s \space \H \e \l \l \o \space \W \o \r \l \d \newline \( \d \e \f \n \space \E \x \a \m \p \l \e \space \[ \] \newline \space \space \space \( \p \r \i \n \t \l \n \space \" \H \e \l \l \o \space \W \o \r \l \d \" \) \) \newline \; \space \C \o \m \m \e \n \t \s \space \s \t \a \r \t \space \w \i \t \h \space \s \e \m \i \c \o \l \o \n \s \. \newline \; \space \T \h \e \space \c \l \o \j \u \r \e \space \r \e \a \d \e \r \space \a \s \s \u \m \e \s \space \t \h \a \t \space \t \h \e \space \f \i \r \s \t \space \t \h \i \n \g \space \i \s \space \a \newline \; \space \f \u \n \c \t \i \o \n \space \o \r \space \m \a \c \r \o \space \t \o \space \c \a \l \l \, \space \a \n \d \space \t \h \e \space \r \e \s \t \space \a \r \e \space \a \r \g \u \m \e \n \t \s \. \newline \; \space \M \o \r \e \space \b \a \s \i \c \space \e \x \a \m \p \l \e \s \: \newline \; \space \M \a \t \h \space \i \s \space \s \t \r \a \i \g \h \t \f \o \r \w \a \r \d \newline \( \+ \space \1 \space \1 \) \space \; \space \= \> \space \2 \newline \( \- \space \2 \space \1 \) \space \; \space \= \> \space \1 \newline \( \* \space \1 \space \2 \) \space \; \space \= \> \space \2 \newline \( \/ \space \2 \space \1 \) \space \; \space \= \> \space \2 \newline \; \space \E \q \u \a \l \i \t \y \space \i \s \space \= \newline \( \= \space \1 \space \1 \) \space \; \space \= \> \space \t \r \u \e \newline \( \= \space \2 \space \1 \) \space \; \space \= \> \space \f \a \l \s \e \newline \; \space \Y \o \u \space \n \e \e \d \space \n \o \t \space \f \o \r \space \l \o \g \i \c \, \space \t \o \o \newline \( \n \o \t \space \t \r \u \e \) \space \; \space \= \> \space \f \a \l \s \e \newline \; \space \N \e \s \t \i \n \g \space \f \o \r \m \s \space \w \o \r \k \s \space \a \s \space \y \o \u \space \e \x \p \e \c \t \newline \( \+ \space \1 \space \( \- \space \3 \space \2 \) \) \space \; \space \= \space \1 \space \+ \space \( \3 \space \- \space \2 \) \space \= \> \space \2 \newline \; \space \T \y \p \e \s \newline \; \; \; \; \; \; \; \; \; \; \; \; \; \newline \; \space \C \l \o \j \u \r \e \space \u \s \e \s \space \J \a \v \a \' \s \space \o \b \j \e \c \t \space \t \y \p \e \s \space \f \o \r \space \b \o \o \l \e \a \n \s \, \space \s \t \r \i \n \g \s \space \a \n \d \space \n \u \m \b \e \r \s \. \newline \; \space \I \f \space \y \o \u \space \w \a \n \t \space \t \o \space \c \r \e \a \t \e \space \a \space \l \i \t \e \r \a \l \space \l \i \s \t \space \o \f \space \d \a \t \a \, \space \u \s \e \space \' \space \t \o \space \s \t \o \p \space \i \t \space \f \r \o \m \newline \; \space \b \e \i \n \g \space \e \v \a \l \u \a \t \e \d \newline \' \( \+ \space \1 \space \2 \) \space \; \space \= \> \space \( \+ \space \1 \space \2 \) \newline \; \space \( \s \h \o \r \t \h \a \n \d \space \f \o \r \space \( \q \u \o \t \e \space \( \+ \space \1 \space \2 \) \) \) \newline \; \space \Y \o \u \space \c \a \n \space \e \v \a \l \space \a \space \q \u \o \t \e \d \space \l \i \s \t \newline \( \e \v \a \l \space \' \( \+ \space \1 \space \2 \) \) \space \; \space \= \> \space \3 \newline \; \space \C \o \l \l \e \c \t \i \o \n \s \space \& \space \S \e \q \u \e \n \c \e \s \newline \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \newline \; \space \L \i \s \t \s \space \a \r \e \space \l \i \n \k \e \d \- \l \i \s \t \space \d \a \t \a \space \s \t \r \u \c \t \u \r \e \s \, \space \w \h \i \l \e \space \V \e \c \t \o \r \s \space \a \r \e \space \a \r \r \a \y \- \b \a \c \k \e \d \. \newline \; \space \A \space \l \i \s \t \space \w \o \u \l \d \space \b \e \space \w \r \i \t \t \e \n \space \a \s \space \j \u \s \t \space \( \1 \space \2 \space \3 \) \, \space \b \u \t \space \w \e \space \h \a \v \e \space \t \o \space \q \u \o \t \e \newline \; \space \i \t \space \t \o \space \s \t \o \p \space \t \h \e \space \r \e \a \d \e \r \space \t \h \i \n \k \i \n \g \space \i \t \' \s \space \a \space \f \u \n \c \t \i \o \n \. \newline \; \space \A \l \s \o \, \space \( \l \i \s \t \space \1 \space \2 \space \3 \) \space \i \s \space \t \h \e \space \s \a \m \e \space \a \s \space \' \( \1 \space \2 \space \3 \) \newline \; \space \" \C \o \l \l \e \c \t \i \o \n \s \" \space \a \r \e \space \j \u \s \t \space \g \r \o \u \p \s \space \o \f \space \d \a \t \a \newline \; \space \B \o \t \h \space \l \i \s \t \s \space \a \n \d \space \v \e \c \t \o \r \s \space \a \r \e \space \c \o \l \l \e \c \t \i \o \n \s \: \newline \( \c \o \l \l \? \space \' \( \1 \space \2 \space \3 \) \) \space \; \space \= \> \space \t \r \u \e \newline \( \c \o \l \l \? \space \[ \1 \space \2 \space \3 \] \) \space \; \space \= \> \space \t \r \u \e \newline \; \space \" \S \e \q \u \e \n \c \e \s \" \space \( \s \e \q \s \) \space \a \r \e \space \a \b \s \t \r \a \c \t \space \d \e \s \c \r \i \p \t \i \o \n \s \space \o \f \space \l \i \s \t \s \space \o \f \space \d \a \t \a \. \newline \; \space \O \n \l \y \space \l \i \s \t \s \space \a \r \e \space \s \e \q \s \. \newline \( \s \e \q \? \space \' \( \1 \space \2 \space \3 \) \) \space \; \space \= \> \space \t \r \u \e \newline \( \s \e \q \? \space \[ \1 \space \2 \space \3 \] \) \space \; \space \= \> \space \f \a \l \s \e \newline \; \space \A \space \s \e \q \space \n \e \e \d \space \o \n \l \y \space \p \r \o \v \i \d \e \space \a \n \space \e \n \t \r \y \space \w \h \e \n \space \i \t \space \i \s \space \a \c \c \e \s \s \e \d \. \newline \; \space \S \o \, \space \s \e \q \s \space \w \h \i \c \h \space \c \a \n \space \b \e \space \l \a \z \y \space \- \- \space \t \h \e \y \space \c \a \n \space \d \e \f \i \n \e \space \i \n \f \i \n \i \t \e \space \s \e \r \i \e \s \: \newline \( \r \a \n \g \e \space \4 \) \space \; \space \= \> \space \( \0 \space \1 \space \2 \space \3 \) \newline \( \r \a \n \g \e \) \space \; \space \= \> \space \( \0 \space \1 \space \2 \space \3 \space \4 \space \. \. \. \) \space \( \a \n \space \i \n \f \i \n \i \t \e \space \s \e \r \i \e \s \) \newline \( \t \a \k \e \space \4 \space \( \r \a \n \g \e \) \) \space \; \space \space \( \0 \space \1 \space \2 \space \3 \) \newline \; \space \U \s \e \space \c \o \n \s \space \t \o \space \a \d \d \space \a \n \space \i \t \e \m \space \t \o \space \t \h \e \space \b \e \g \i \n \n \i \n \g \space \o \f \space \a \space \l \i \s \t \space \o \r \space \v \e \c \t \o \r \newline \( \c \o \n \s \space \4 \space \[ \1 \space \2 \space \3 \] \) \space \; \space \= \> \space \( \4 \space \1 \space \2 \space \3 \) \newline \( \c \o \n \s \space \4 \space \' \( \1 \space \2 \space \3 \) \) \space \; \space \= \> \space \( \4 \space \1 \space \2 \space \3 \) \newline \; \space \C \o \n \j \space \w \i \l \l \space \a \d \d \space \a \n \space \i \t \e \m \space \t \o \space \a \space \c \o \l \l \e \c \t \i \o \n \space \i \n \space \t \h \e \space \m \o \s \t \space \e \f \f \i \c \i \e \n \t \space \w \a \y \. \newline \; \space \F \o \r \space \l \i \s \t \s \, \space \t \h \e \y \space \i \n \s \e \r \t \space \a \t \space \t \h \e \space \b \e \g \i \n \n \i \n \g \. \space \F \o \r \space \v \e \c \t \o \r \s \, \space \t \h \e \y \space \i \n \s \e \r \t \space \a \t \space \t \h \e \space \e \n \d \. \newline \( \c \o \n \j \space \[ \1 \space \2 \space \3 \] \space \4 \) \space \; \space \= \> \space \[ \1 \space \2 \space \3 \space \4 \] \newline \( \c \o \n \j \space \' \( \1 \space \2 \space \3 \) \space \4 \) \space \; \space \= \> \space \( \4 \space \1 \space \2 \space \3 \) \newline \; \space \U \s \e \space \c \o \n \c \a \t \space \t \o \space \a \d \d \space \l \i \s \t \s \space \o \r \space \v \e \c \t \o \r \s \space \t \o \g \e \t \h \e \r \newline \( \c \o \n \c \a \t \space \[ \1 \space \2 \] \space \' \( \3 \space \4 \) \) \space \; \space \= \> \space \( \1 \space \2 \space \3 \space \4 \) \newline \; \space \U \s \e \space \f \i \l \t \e \r \, \space \m \a \p \space \t \o \space \i \n \t \e \r \a \c \t \space \w \i \t \h \space \c \o \l \l \e \c \t \i \o \n \s \newline \( \m \a \p \space \i \n \c \space \[ \1 \space \2 \space \3 \] \) \space \; \space \= \> \space \( \2 \space \3 \space \4 \) \newline \( \f \i \l \t \e \r \space \e \v \e \n \? \space \[ \1 \space \2 \space \3 \] \) \space \; \space \= \> \space \( \2 \) \newline \; \space \U \s \e \space \r \e \d \u \c \e \space \t \o \space \r \e \d \u \c \e \space \t \h \e \m \newline \( \r \e \d \u \c \e \space \+ \space \[ \1 \space \2 \space \3 \space \4 \] \) \newline \; \space \= \space \( \+ \space \( \+ \space \( \+ \space \1 \space \2 \) \space \3 \) \space \4 \) \newline \; \space \= \> \space \1 \0 \newline \; \space \R \e \d \u \c \e \space \c \a \n \space \t \a \k \e \space \a \n \space \i \n \i \t \i \a \l \- \v \a \l \u \e \space \a \r \g \u \m \e \n \t \space \t \o \o \newline \( \r \e \d \u \c \e \space \c \o \n \j \space \[ \] \space \' \( \3 \space \2 \space \1 \) \) \newline \; \space \= \space \( \c \o \n \j \space \( \c \o \n \j \space \( \c \o \n \j \space \[ \] \space \3 \) \space \2 \) \space \1 \) \newline \; \space \= \> \space \[ \3 \space \2 \space \1 \] \newline \; \space \F \u \n \c \t \i \o \n \s \newline \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \newline \newline \; \space \U \s \e \space \f \n \space \t \o \space \c \r \e \a \t \e \space \n \e \w \space \f \u \n \c \t \i \o \n \s \. \space \A \space \f \u \n \c \t \i \o \n \space \a \l \w \a \y \s \space \r \e \t \u \r \n \s \newline \; \space \i \t \s \space \l \a \s \t \space \s \t \a \t \e \m \e \n \t \. \newline \( \f \n \space \[ \] \space \" \H \e \l \l \o \space \W \o \r \l \d \" \) \space \; \space \= \> \space \f \n \newline \; \space \( \Y \o \u \space \n \e \e \d \space \e \x \t \r \a \space \p \a \r \e \n \s \space \t \o \space \c \a \l \l \space \i \t \) \newline \( \( \f \n \space \[ \] \space \" \H \e \l \l \o \space \W \o \r \l \d \" \) \) \space \; \space \= \> \space \" \H \e \l \l \o \space \W \o \r \l \d \" \newline \; \space \Y \o \u \space \c \a \n \space \c \r \e \a \t \e \space \a \space \v \a \r \space \u \s \i \n \g \space \d \e \f \newline \( \d \e \f \space \x \space \1 \) \newline \x \space \; \space \= \> \space \1 \newline \; \space \A \s \s \i \g \n \space \a \space \f \u \n \c \t \i \o \n \space \t \o \space \a \space \v \a \r \newline \( \d \e \f \space \h \e \l \l \o \- \w \o \r \l \d \space \( \f \n \space \[ \] \space \" \H \e \l \l \o \space \W \o \r \l \d \" \) \) \newline \( \h \e \l \l \o \- \w \o \r \l \d \) \space \; \space \= \> \space \" \H \e \l \l \o \space \W \o \r \l \d \" \newline \; \space \Y \o \u \space \c \a \n \space \s \h \o \r \t \e \n \space \t \h \i \s \space \p \r \o \c \e \s \s \space \b \y \space \u \s \i \n \g \space \d \e \f \n \newline \( \d \e \f \n \space \h \e \l \l \o \- \w \o \r \l \d \space \[ \] \space \" \H \e \l \l \o \space \W \o \r \l \d \" \) \newline \; \space \T \h \e \space \[ \] \space \i \s \space \t \h \e \space \l \i \s \t \space \o \f \space \a \r \g \u \m \e \n \t \s \space \f \o \r \space \t \h \e \space \f \u \n \c \t \i \o \n \. \newline \( \d \e \f \n \space \h \e \l \l \o \space \[ \n \a \m \e \] \newline \space \space \( \s \t \r \space \" \H \e \l \l \o \space \" \space \n \a \m \e \) \) \newline \( \h \e \l \l \o \space \" \S \t \e \v \e \" \) \space \; \space \= \> \space \" \H \e \l \l \o \space \S \t \e \v \e \" \newline \; \space \Y \o \u \space \c \a \n \space \a \l \s \o \space \u \s \e \space \t \h \i \s \space \s \h \o \r \t \h \a \n \d \space \t \o \space \c \r \e \a \t \e \space \f \u \n \c \t \i \o \n \s \: \newline \( \d \e \f \space \h \e \l \l \o \2 \space \# \( \s \t \r \space \" \H \e \l \l \o \space \" \space \% \1 \) \) \newline \( \h \e \l \l \o \2 \space \" \J \u \l \i \e \" \) \space \; \space \= \> \space \" \H \e \l \l \o \space \J \u \l \i \e \" \newline \; \space \U \s \e \f \u \l \space \f \o \r \m \s \newline \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \newline \; \space \L \o \g \i \c \space \c \o \n \s \t \r \u \c \t \s \space \i \n \space \c \l \o \j \u \r \e \space \a \r \e \space \j \u \s \t \space \m \a \c \r \o \s \, \space \a \n \d \space \l \o \o \k \space \l \i \k \e \newline \; \space \e \v \e \r \y \t \h \i \n \g \space \e \l \s \e \newline \( \i \f \space \f \a \l \s \e \space \" \a \" \space \" \b \" \) \space \; \space \= \> \space \" \b \" \newline \( \i \f \space \f \a \l \s \e \space \" \a \" \) \space \; \space \= \> \space \n \i \l \newline \; \space \U \s \e \space \l \e \t \space \t \o \space \c \r \e \a \t \e \space \t \e \m \p \o \r \a \r \y \space \b \i \n \d \i \n \g \s \newline \( \l \e \t \space \[ \a \space \1 \space \b \space \2 \] \newline \space \space \( \> \space \a \space \b \) \) \space \; \space \= \> \space \f \a \l \s \e \newline \; \space \G \r \o \u \p \space \s \t \a \t \e \m \e \n \t \s \space \t \o \g \e \t \h \e \r \space \w \i \t \h \space \d \o \newline \( \d \o \newline \space \space \( \p \r \i \n \t \space \" \H \e \l \l \o \" \) \newline \space \space \" \W \o \r \l \d \" \) \space \; \space \= \> \space \" \W \o \r \l \d \" \space \( \p \r \i \n \t \s \space \" \H \e \l \l \o \" \) \newline \; \space \F \u \n \c \t \i \o \n \s \space \h \a \v \e \space \a \n \space \i \m \p \l \i \c \i \t \space \d \o \newline \( \d \e \f \n \space \p \r \i \n \t \- \a \n \d \- \s \a \y \- \h \e \l \l \o \space \[ \n \a \m \e \] \newline \space \space \( \p \r \i \n \t \space \" \S \a \y \i \n \g \space \h \e \l \l \o \space \t \o \space \" \space \n \a \m \e \) \newline \space \space \( \s \t \r \space \" \H \e \l \l \o \space \" \space \n \a \m \e \) \) \newline \( \p \r \i \n \t \- \a \n \d \- \s \a \y \- \h \e \l \l \o \space \" \J \e \f \f \" \) \space \; \= \> \space \" \H \e \l \l \o \space \J \e \f \f \" \space \( \p \r \i \n \t \s \space \" \S \a \y \i \n \g \space \h \e \l \l \o \space \t \o \space \J \e \f \f \" \) \newline \; \space \T \o \m \a \d \o \space \d \e \space \h \t \t \p \s \: \/ \/ \l \e \a \r \n \x \i \n \y \m \i \n \u \t \e \s \. \c \o \m \/ \d \o \c \s \/ \c \l \o \j \u \r \e \/ \newline \newline \; \space \N \e \s \t \i \n \g \space \f \o \r \m \s \space \w \o \r \k \s \space \a \s \space \y \o \u \space \e \x \p \e \c \t \newline \( \+ \space \1 \space \( \- \space \3 \space \2 \) \) \space \; \space \= \space \1 \space \+ \space \( \3 \space \- \space \2 \) \space \= \> \space \2 \newline \newline \1 \. \2 \space \newline \1 \. \2 \e \3 \space \newline \1 \. \2 \space \e \space \3 \space \newline \1 \. \2 \space \e \3 \space)
+(findPattern fileToList 0 '() '())
+Execution error (StackOverflowError) at resaltadorv3.core/followAFD (core.clj:47).
+null
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(findPattern fileToList 0 '() '())
+Execution error (StackOverflowError) at resaltadorv3.core/followAFD (core.clj:48).
+null
+(followAFD transiciones "letter-e" 0)
+resaltadorv3.core=>
+5
+(followAFD transiciones \1 0)
+resaltadorv3.core=>
+-1
+(findPattern fileToList 0 '() '())
+Execution error (StackOverflowError) at resaltadorv3.core/followAFD (core.clj:46).
+null
+(letterToSymbol (first fileToList))
+resaltadorv3.core=>
+\;
+(letterToSymbol (last fileToList))
+resaltadorv3.core=>
+"special"
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error reading source at (resaltadorv3/core.clj:61:1).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(findPattern fileToList 0 '() '())
+resaltadorv3.core=>
+"jojo"
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+
+(findPattern fileToList 0 '() '())
+resaltadorv3.core=>
+"jojo"
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+
+(findPattern fileToList 0 '() '())
+Execution error (StackOverflowError) at resaltadorv3.core/followAFD (core.clj:48).
+null
+(empty? '())
+resaltadorv3.core=>
+true
+(next '())
+resaltadorv3.core=>
+nil
+(empty nil)
+resaltadorv3.core=>
+nil
+(empty? nil)
+resaltadorv3.core=>
+true
+(= 0 -1)
+resaltadorv3.core=>
+false
+(= 0 0)
+resaltadorv3.core=>
+true
+(> 0 100)
+resaltadorv3.core=>
+false
+(> 101 100)
+resaltadorv3.core=>
+true
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(findPattern fileToList 100 '() '())
+Execution error (StackOverflowError) at resaltadorv3.core/followAFD (core.clj:48).
+null
+(if (and (= (nth transiciones 1) simbolo) (= (first transiciones) estado)) (nth afd 2) -1)
+Syntax error compiling at (/private/var/folders/5c/43_1g8s55f3cvpcthrmsmwt40000gn/T/form-init424309973999737877.clj:1:14).
+Unable to resolve symbol: simbolo in this context
+(if (and (= (nth transiciones 1) \space) (= (first transiciones) 6)) (nth afd 2) -1)
+Syntax error compiling at (/private/var/folders/5c/43_1g8s55f3cvpcthrmsmwt40000gn/T/form-init424309973999737877.clj:1:74).
+Unable to resolve symbol: afd in this context
+(followAFD transiciones \space 0)
+resaltadorv3.core=>
+0
+(followAFD transiciones \space 6)
+resaltadorv3.core=>
+6
+(followAFD transiciones \space 3)
+resaltadorv3.core=>
+-1
+(followAFD transiciones \space 2)
+resaltadorv3.core=>
+102
+(followAFD transiciones \space 4)
+resaltadorv3.core=>
+4
+(followAFD transiciones \space 0)
+resaltadorv3.core=>
+0
+(letterToSymbol (first fileToList)) 0)
+resaltadorv3.core=>
+0
+Syntax error reading source at (REPL:1:44).
+Unmatched delimiter: )
+(followAFD transiciones (letterToSymbol (first fileToList)) 0)
+resaltadorv3.core=>
+6
+(concat '(\h \n \j) (list (first fileToList)))
+resaltadorv3.core=>
+(\h \n \j \;)
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(findPattern '(\g \j \k \space) 0 '() '())
+resaltadorv3.core=>
+()
+(findPattern '(\2 \2 \2 \space) 0 '() '())
+resaltadorv3.core=>
+()
+(findPattern '(\; \a \2 \space) 0 '() '())
+resaltadorv3.core=>
+()
+(empty? '(\; \a \2 \space))
+resaltadorv3.core=>
+false
+(seq \a \a)
+Execution error (ArityException) at resaltadorv3.core/eval8973 (form-init424309973999737877.clj:1).
+Wrong number of args (2) passed to: clojure.core/seq--5419
+(seq '('\a \a))
+resaltadorv3.core=>
+((quote \a) \a)
+(map char-name-string '(\a \b \c \d))
+resaltadorv3.core=>
+(nil nil nil nil)
+(str \a)
+resaltadorv3.core=>
+"a"
+(apply str '(\a \v \c))
+resaltadorv3.core=>
+"avc"
+(some (fn [x] (= (apply str (filter #(= \space %) word)) x)) reservedWords)
+Syntax error compiling at (/private/var/folders/5c/43_1g8s55f3cvpcthrmsmwt40000gn/T/form-init424309973999737877.clj:1:33).
+Unable to resolve symbol: word in this context
+(some (fn [x] (= (apply str (filter #(= \space %) '(\s \a \b \g))) x)) reservedWords)
+resaltadorv3.core=>
+nil
+(some (fn [x] (= (apply str (filter #(= \space %) '(\d \e \f \n \space))) x)) reservedWords)
+resaltadorv3.core=>
+nil
+(filter #(not= \space %) '(\d \e \f \n \space))
+resaltadorv3.core=>
+(\d \e \f \n)
+(apply str (filter #(not= \space %) '(\d \e \f \n \space)))
+resaltadorv3.core=>
+"defn"
+(some #(= (apply str (filter #(not= \space %) '(\d \e \f \n \space))) %) reservedWords)
+Syntax error reading source at (REPL:1:36).
+Nested #()s are not allowed
+(some (fn [x] (= (apply str (filter #(not= \space %) '(\d \e \f \n \space))) x) reservedWords))
+Execution error (ArityException) at resaltadorv3.core/eval10099 (form-init424309973999737877.clj:1).
+Wrong number of args (1) passed to: clojure.core/some
+(some (fn [x] (= (apply str (filter #(not= \space %) '(\d \e \f \n \space))) x)) reservedWords)
+resaltadorv3.core=>
+true
+(str \newline)
+resaltadorv3.core=>
+"\n"
+(str \space)
+resaltadorv3.core=>
+" "
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error compiling at (resaltadorv3/core.clj:75:5).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error compiling at (resaltadorv3/core.clj:77:42).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error compiling at (resaltadorv3/core.clj:77:42).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error compiling at (resaltadorv3/core.clj:94:27).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error reading source at (resaltadorv3/core.clj:98:56).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error reading source at (resaltadorv3/core.clj:98:65).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error compiling at (resaltadorv3/core.clj:91:77).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error compiling at (resaltadorv3/core.clj:93:81).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error compiling at (resaltadorv3/core.clj:104:5).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(main)
+Execution error (StackOverflowError) at resaltadorv3.core/followAFD (core.clj:47).
+null
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error compiling at (resaltadorv3/core.clj:53:18).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error compiling at (resaltadorv3/core.clj:53:18).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(main)
+Execution error (StackOverflowError) at resaltadorv3.core/followAFD (core.clj:47).
+null
+(followAFD transiciones (letterToSymbol (first listFile)) 0)
+resaltadorv3.core=>
+6
+(next listFile)
+resaltadorv3.core=>
+(\; \space \T \h \i \s \space \p \r \o \g \r \a \m \space \d \i \s \p \l \a \y \s \space \H \e \l \l \o \space \W \o \r \l \d \newline \( \d \e \f \n \space \E \x \a \m \p \l \e \space \[ \] \newline \space \space \space \( \p \r \i \n \t \l \n \space \" \H \e \l \l \o \space \W \o \r \l \d \" \) \) \newline \; \space \C \o \m \m \e \n \t \s \space \s \t \a \r \t \space \w \i \t \h \space \s \e \m \i \c \o \l \o \n \s \. \newline \; \space \T \h \e \space \c \l \o \j \u \r \e \space \r \e \a \d \e \r \space \a \s \s \u \m \e \s \space \t \h \a \t \space \t \h \e \space \f \i \r \s \t \space \t \h \i \n \g \space \i \s \space \a \newline \; \space \f \u \n \c \t \i \o \n \space \o \r \space \m \a \c \r \o \space \t \o \space \c \a \l \l \, \space \a \n \d \space \t \h \e \space \r \e \s \t \space \a \r \e \space \a \r \g \u \m \e \n \t \s \. \newline \; \space \M \o \r \e \space \b \a \s \i \c \space \e \x \a \m \p \l \e \s \: \newline \; \space \M \a \t \h \space \i \s \space \s \t \r \a \i \g \h \t \f \o \r \w \a \r \d \newline \( \+ \space \1 \space \1 \) \space \; \space \= \> \space \2 \newline \( \- \space \2 \space \1 \) \space \; \space \= \> \space \1 \newline \( \* \space \1 \space \2 \) \space \; \space \= \> \space \2 \newline \( \/ \space \2 \space \1 \) \space \; \space \= \> \space \2 \newline \; \space \E \q \u \a \l \i \t \y \space \i \s \space \= \newline \( \= \space \1 \space \1 \) \space \; \space \= \> \space \t \r \u \e \newline \( \= \space \2 \space \1 \) \space \; \space \= \> \space \f \a \l \s \e \newline \; \space \Y \o \u \space \n \e \e \d \space \n \o \t \space \f \o \r \space \l \o \g \i \c \, \space \t \o \o \newline \( \n \o \t \space \t \r \u \e \) \space \; \space \= \> \space \f \a \l \s \e \newline \; \space \N \e \s \t \i \n \g \space \f \o \r \m \s \space \w \o \r \k \s \space \a \s \space \y \o \u \space \e \x \p \e \c \t \newline \( \+ \space \1 \space \( \- \space \3 \space \2 \) \) \space \; \space \= \space \1 \space \+ \space \( \3 \space \- \space \2 \) \space \= \> \space \2 \newline \; \space \T \y \p \e \s \newline \; \; \; \; \; \; \; \; \; \; \; \; \; \newline \; \space \C \l \o \j \u \r \e \space \u \s \e \s \space \J \a \v \a \' \s \space \o \b \j \e \c \t \space \t \y \p \e \s \space \f \o \r \space \b \o \o \l \e \a \n \s \, \space \s \t \r \i \n \g \s \space \a \n \d \space \n \u \m \b \e \r \s \. \newline \; \space \I \f \space \y \o \u \space \w \a \n \t \space \t \o \space \c \r \e \a \t \e \space \a \space \l \i \t \e \r \a \l \space \l \i \s \t \space \o \f \space \d \a \t \a \, \space \u \s \e \space \' \space \t \o \space \s \t \o \p \space \i \t \space \f \r \o \m \newline \; \space \b \e \i \n \g \space \e \v \a \l \u \a \t \e \d \newline \' \( \+ \space \1 \space \2 \) \space \; \space \= \> \space \( \+ \space \1 \space \2 \) \newline \; \space \( \s \h \o \r \t \h \a \n \d \space \f \o \r \space \( \q \u \o \t \e \space \( \+ \space \1 \space \2 \) \) \) \newline \; \space \Y \o \u \space \c \a \n \space \e \v \a \l \space \a \space \q \u \o \t \e \d \space \l \i \s \t \newline \( \e \v \a \l \space \' \( \+ \space \1 \space \2 \) \) \space \; \space \= \> \space \3 \newline \; \space \C \o \l \l \e \c \t \i \o \n \s \space \& \space \S \e \q \u \e \n \c \e \s \newline \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \newline \; \space \L \i \s \t \s \space \a \r \e \space \l \i \n \k \e \d \- \l \i \s \t \space \d \a \t \a \space \s \t \r \u \c \t \u \r \e \s \, \space \w \h \i \l \e \space \V \e \c \t \o \r \s \space \a \r \e \space \a \r \r \a \y \- \b \a \c \k \e \d \. \newline \; \space \A \space \l \i \s \t \space \w \o \u \l \d \space \b \e \space \w \r \i \t \t \e \n \space \a \s \space \j \u \s \t \space \( \1 \space \2 \space \3 \) \, \space \b \u \t \space \w \e \space \h \a \v \e \space \t \o \space \q \u \o \t \e \newline \; \space \i \t \space \t \o \space \s \t \o \p \space \t \h \e \space \r \e \a \d \e \r \space \t \h \i \n \k \i \n \g \space \i \t \' \s \space \a \space \f \u \n \c \t \i \o \n \. \newline \; \space \A \l \s \o \, \space \( \l \i \s \t \space \1 \space \2 \space \3 \) \space \i \s \space \t \h \e \space \s \a \m \e \space \a \s \space \' \( \1 \space \2 \space \3 \) \newline \; \space \" \C \o \l \l \e \c \t \i \o \n \s \" \space \a \r \e \space \j \u \s \t \space \g \r \o \u \p \s \space \o \f \space \d \a \t \a \newline \; \space \B \o \t \h \space \l \i \s \t \s \space \a \n \d \space \v \e \c \t \o \r \s \space \a \r \e \space \c \o \l \l \e \c \t \i \o \n \s \: \newline \( \c \o \l \l \? \space \' \( \1 \space \2 \space \3 \) \) \space \; \space \= \> \space \t \r \u \e \newline \( \c \o \l \l \? \space \[ \1 \space \2 \space \3 \] \) \space \; \space \= \> \space \t \r \u \e \newline \; \space \" \S \e \q \u \e \n \c \e \s \" \space \( \s \e \q \s \) \space \a \r \e \space \a \b \s \t \r \a \c \t \space \d \e \s \c \r \i \p \t \i \o \n \s \space \o \f \space \l \i \s \t \s \space \o \f \space \d \a \t \a \. \newline \; \space \O \n \l \y \space \l \i \s \t \s \space \a \r \e \space \s \e \q \s \. \newline \( \s \e \q \? \space \' \( \1 \space \2 \space \3 \) \) \space \; \space \= \> \space \t \r \u \e \newline \( \s \e \q \? \space \[ \1 \space \2 \space \3 \] \) \space \; \space \= \> \space \f \a \l \s \e \newline \; \space \A \space \s \e \q \space \n \e \e \d \space \o \n \l \y \space \p \r \o \v \i \d \e \space \a \n \space \e \n \t \r \y \space \w \h \e \n \space \i \t \space \i \s \space \a \c \c \e \s \s \e \d \. \newline \; \space \S \o \, \space \s \e \q \s \space \w \h \i \c \h \space \c \a \n \space \b \e \space \l \a \z \y \space \- \- \space \t \h \e \y \space \c \a \n \space \d \e \f \i \n \e \space \i \n \f \i \n \i \t \e \space \s \e \r \i \e \s \: \newline \( \r \a \n \g \e \space \4 \) \space \; \space \= \> \space \( \0 \space \1 \space \2 \space \3 \) \newline \( \r \a \n \g \e \) \space \; \space \= \> \space \( \0 \space \1 \space \2 \space \3 \space \4 \space \. \. \. \) \space \( \a \n \space \i \n \f \i \n \i \t \e \space \s \e \r \i \e \s \) \newline \( \t \a \k \e \space \4 \space \( \r \a \n \g \e \) \) \space \; \space \space \( \0 \space \1 \space \2 \space \3 \) \newline \; \space \U \s \e \space \c \o \n \s \space \t \o \space \a \d \d \space \a \n \space \i \t \e \m \space \t \o \space \t \h \e \space \b \e \g \i \n \n \i \n \g \space \o \f \space \a \space \l \i \s \t \space \o \r \space \v \e \c \t \o \r \newline \( \c \o \n \s \space \4 \space \[ \1 \space \2 \space \3 \] \) \space \; \space \= \> \space \( \4 \space \1 \space \2 \space \3 \) \newline \( \c \o \n \s \space \4 \space \' \( \1 \space \2 \space \3 \) \) \space \; \space \= \> \space \( \4 \space \1 \space \2 \space \3 \) \newline \; \space \C \o \n \j \space \w \i \l \l \space \a \d \d \space \a \n \space \i \t \e \m \space \t \o \space \a \space \c \o \l \l \e \c \t \i \o \n \space \i \n \space \t \h \e \space \m \o \s \t \space \e \f \f \i \c \i \e \n \t \space \w \a \y \. \newline \; \space \F \o \r \space \l \i \s \t \s \, \space \t \h \e \y \space \i \n \s \e \r \t \space \a \t \space \t \h \e \space \b \e \g \i \n \n \i \n \g \. \space \F \o \r \space \v \e \c \t \o \r \s \, \space \t \h \e \y \space \i \n \s \e \r \t \space \a \t \space \t \h \e \space \e \n \d \. \newline \( \c \o \n \j \space \[ \1 \space \2 \space \3 \] \space \4 \) \space \; \space \= \> \space \[ \1 \space \2 \space \3 \space \4 \] \newline \( \c \o \n \j \space \' \( \1 \space \2 \space \3 \) \space \4 \) \space \; \space \= \> \space \( \4 \space \1 \space \2 \space \3 \) \newline \; \space \U \s \e \space \c \o \n \c \a \t \space \t \o \space \a \d \d \space \l \i \s \t \s \space \o \r \space \v \e \c \t \o \r \s \space \t \o \g \e \t \h \e \r \newline \( \c \o \n \c \a \t \space \[ \1 \space \2 \] \space \' \( \3 \space \4 \) \) \space \; \space \= \> \space \( \1 \space \2 \space \3 \space \4 \) \newline \; \space \U \s \e \space \f \i \l \t \e \r \, \space \m \a \p \space \t \o \space \i \n \t \e \r \a \c \t \space \w \i \t \h \space \c \o \l \l \e \c \t \i \o \n \s \newline \( \m \a \p \space \i \n \c \space \[ \1 \space \2 \space \3 \] \) \space \; \space \= \> \space \( \2 \space \3 \space \4 \) \newline \( \f \i \l \t \e \r \space \e \v \e \n \? \space \[ \1 \space \2 \space \3 \] \) \space \; \space \= \> \space \( \2 \) \newline \; \space \U \s \e \space \r \e \d \u \c \e \space \t \o \space \r \e \d \u \c \e \space \t \h \e \m \newline \( \r \e \d \u \c \e \space \+ \space \[ \1 \space \2 \space \3 \space \4 \] \) \newline \; \space \= \space \( \+ \space \( \+ \space \( \+ \space \1 \space \2 \) \space \3 \) \space \4 \) \newline \; \space \= \> \space \1 \0 \newline \; \space \R \e \d \u \c \e \space \c \a \n \space \t \a \k \e \space \a \n \space \i \n \i \t \i \a \l \- \v \a \l \u \e \space \a \r \g \u \m \e \n \t \space \t \o \o \newline \( \r \e \d \u \c \e \space \c \o \n \j \space \[ \] \space \' \( \3 \space \2 \space \1 \) \) \newline \; \space \= \space \( \c \o \n \j \space \( \c \o \n \j \space \( \c \o \n \j \space \[ \] \space \3 \) \space \2 \) \space \1 \) \newline \; \space \= \> \space \[ \3 \space \2 \space \1 \] \newline \; \space \F \u \n \c \t \i \o \n \s \newline \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \newline \newline \; \space \U \s \e \space \f \n \space \t \o \space \c \r \e \a \t \e \space \n \e \w \space \f \u \n \c \t \i \o \n \s \. \space \A \space \f \u \n \c \t \i \o \n \space \a \l \w \a \y \s \space \r \e \t \u \r \n \s \newline \; \space \i \t \s \space \l \a \s \t \space \s \t \a \t \e \m \e \n \t \. \newline \( \f \n \space \[ \] \space \" \H \e \l \l \o \space \W \o \r \l \d \" \) \space \; \space \= \> \space \f \n \newline \; \space \( \Y \o \u \space \n \e \e \d \space \e \x \t \r \a \space \p \a \r \e \n \s \space \t \o \space \c \a \l \l \space \i \t \) \newline \( \( \f \n \space \[ \] \space \" \H \e \l \l \o \space \W \o \r \l \d \" \) \) \space \; \space \= \> \space \" \H \e \l \l \o \space \W \o \r \l \d \" \newline \; \space \Y \o \u \space \c \a \n \space \c \r \e \a \t \e \space \a \space \v \a \r \space \u \s \i \n \g \space \d \e \f \newline \( \d \e \f \space \x \space \1 \) \newline \x \space \; \space \= \> \space \1 \newline \; \space \A \s \s \i \g \n \space \a \space \f \u \n \c \t \i \o \n \space \t \o \space \a \space \v \a \r \newline \( \d \e \f \space \h \e \l \l \o \- \w \o \r \l \d \space \( \f \n \space \[ \] \space \" \H \e \l \l \o \space \W \o \r \l \d \" \) \) \newline \( \h \e \l \l \o \- \w \o \r \l \d \) \space \; \space \= \> \space \" \H \e \l \l \o \space \W \o \r \l \d \" \newline \; \space \Y \o \u \space \c \a \n \space \s \h \o \r \t \e \n \space \t \h \i \s \space \p \r \o \c \e \s \s \space \b \y \space \u \s \i \n \g \space \d \e \f \n \newline \( \d \e \f \n \space \h \e \l \l \o \- \w \o \r \l \d \space \[ \] \space \" \H \e \l \l \o \space \W \o \r \l \d \" \) \newline \; \space \T \h \e \space \[ \] \space \i \s \space \t \h \e \space \l \i \s \t \space \o \f \space \a \r \g \u \m \e \n \t \s \space \f \o \r \space \t \h \e \space \f \u \n \c \t \i \o \n \. \newline \( \d \e \f \n \space \h \e \l \l \o \space \[ \n \a \m \e \] \newline \space \space \( \s \t \r \space \" \H \e \l \l \o \space \" \space \n \a \m \e \) \) \newline \( \h \e \l \l \o \space \" \S \t \e \v \e \" \) \space \; \space \= \> \space \" \H \e \l \l \o \space \S \t \e \v \e \" \newline \; \space \Y \o \u \space \c \a \n \space \a \l \s \o \space \u \s \e \space \t \h \i \s \space \s \h \o \r \t \h \a \n \d \space \t \o \space \c \r \e \a \t \e \space \f \u \n \c \t \i \o \n \s \: \newline \( \d \e \f \space \h \e \l \l \o \2 \space \# \( \s \t \r \space \" \H \e \l \l \o \space \" \space \% \1 \) \) \newline \( \h \e \l \l \o \2 \space \" \J \u \l \i \e \" \) \space \; \space \= \> \space \" \H \e \l \l \o \space \J \u \l \i \e \" \newline \; \space \U \s \e \f \u \l \space \f \o \r \m \s \newline \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \newline \; \space \L \o \g \i \c \space \c \o \n \s \t \r \u \c \t \s \space \i \n \space \c \l \o \j \u \r \e \space \a \r \e \space \j \u \s \t \space \m \a \c \r \o \s \, \space \a \n \d \space \l \o \o \k \space \l \i \k \e \newline \; \space \e \v \e \r \y \t \h \i \n \g \space \e \l \s \e \newline \( \i \f \space \f \a \l \s \e \space \" \a \" \space \" \b \" \) \space \; \space \= \> \space \" \b \" \newline \( \i \f \space \f \a \l \s \e \space \" \a \" \) \space \; \space \= \> \space \n \i \l \newline \; \space \U \s \e \space \l \e \t \space \t \o \space \c \r \e \a \t \e \space \t \e \m \p \o \r \a \r \y \space \b \i \n \d \i \n \g \s \newline \( \l \e \t \space \[ \a \space \1 \space \b \space \2 \] \newline \space \space \( \> \space \a \space \b \) \) \space \; \space \= \> \space \f \a \l \s \e \newline \; \space \G \r \o \u \p \space \s \t \a \t \e \m \e \n \t \s \space \t \o \g \e \t \h \e \r \space \w \i \t \h \space \d \o \newline \( \d \o \newline \space \space \( \p \r \i \n \t \space \" \H \e \l \l \o \" \) \newline \space \space \" \W \o \r \l \d \" \) \space \; \space \= \> \space \" \W \o \r \l \d \" \space \( \p \r \i \n \t \s \space \" \H \e \l \l \o \" \) \newline \; \space \F \u \n \c \t \i \o \n \s \space \h \a \v \e \space \a \n \space \i \m \p \l \i \c \i \t \space \d \o \newline \( \d \e \f \n \space \p \r \i \n \t \- \a \n \d \- \s \a \y \- \h \e \l \l \o \space \[ \n \a \m \e \] \newline \space \space \( \p \r \i \n \t \space \" \S \a \y \i \n \g \space \h \e \l \l \o \space \t \o \space \" \space \n \a \m \e \) \newline \space \space \( \s \t \r \space \" \H \e \l \l \o \space \" \space \n \a \m \e \) \) \newline \( \p \r \i \n \t \- \a \n \d \- \s \a \y \- \h \e \l \l \o \space \" \J \e \f \f \" \) \space \; \= \> \space \" \H \e \l \l \o \space \J \e \f \f \" \space \( \p \r \i \n \t \s \space \" \S \a \y \i \n \g \space \h \e \l \l \o \space \t \o \space \J \e \f \f \" \) \newline \; \space \T \o \m \a \d \o \space \d \e \space \h \t \t \p \s \: \/ \/ \l \e \a \r \n \x \i \n \y \m \i \n \u \t \e \s \. \c \o \m \/ \d \o \c \s \/ \c \l \o \j \u \r \e \/ \newline \newline \; \space \N \e \s \t \i \n \g \space \f \o \r \m \s \space \w \o \r \k \s \space \a \s \space \y \o \u \space \e \x \p \e \c \t \newline \( \+ \space \1 \space \( \- \space \3 \space \2 \) \) \space \; \space \= \space \1 \space \+ \space \( \3 \space \- \space \2 \) \space \= \> \space \2 \newline \newline \1 \. \2 \space \newline \1 \. \2 \e \3 \space \newline \1 \. \2 \space \e \space \3 \space \newline \1 \. \2 \space \e \3 \space)
+(first (next listFile))
+resaltadorv3.core=>
+\;
+(concat '(\a \n \7)' (list (first listFile)))
+resaltadorv3.core=>
+(\a \n \7 list (first listFile))
+(concat '(\a \n \7) (list (first listFile)))
+resaltadorv3.core=>
+(\a \n \7 \;)
+(concat (list (first (reverse '(\a \n \7 \;)))) listFile)
+resaltadorv3.core=>
+(\; \; \; \space \T \h \i \s \space \p \r \o \g \r \a \m \space \d \i \s \p \l \a \y \s \space \H \e \l \l \o \space \W \o \r \l \d \newline \( \d \e \f \n \space \E \x \a \m \p \l \e \space \[ \] \newline \space \space \space \( \p \r \i \n \t \l \n \space \" \H \e \l \l \o \space \W \o \r \l \d \" \) \) \newline \; \space \C \o \m \m \e \n \t \s \space \s \t \a \r \t \space \w \i \t \h \space \s \e \m \i \c \o \l \o \n \s \. \newline \; \space \T \h \e \space \c \l \o \j \u \r \e \space \r \e \a \d \e \r \space \a \s \s \u \m \e \s \space \t \h \a \t \space \t \h \e \space \f \i \r \s \t \space \t \h \i \n \g \space \i \s \space \a \newline \; \space \f \u \n \c \t \i \o \n \space \o \r \space \m \a \c \r \o \space \t \o \space \c \a \l \l \, \space \a \n \d \space \t \h \e \space \r \e \s \t \space \a \r \e \space \a \r \g \u \m \e \n \t \s \. \newline \; \space \M \o \r \e \space \b \a \s \i \c \space \e \x \a \m \p \l \e \s \: \newline \; \space \M \a \t \h \space \i \s \space \s \t \r \a \i \g \h \t \f \o \r \w \a \r \d \newline \( \+ \space \1 \space \1 \) \space \; \space \= \> \space \2 \newline \( \- \space \2 \space \1 \) \space \; \space \= \> \space \1 \newline \( \* \space \1 \space \2 \) \space \; \space \= \> \space \2 \newline \( \/ \space \2 \space \1 \) \space \; \space \= \> \space \2 \newline \; \space \E \q \u \a \l \i \t \y \space \i \s \space \= \newline \( \= \space \1 \space \1 \) \space \; \space \= \> \space \t \r \u \e \newline \( \= \space \2 \space \1 \) \space \; \space \= \> \space \f \a \l \s \e \newline \; \space \Y \o \u \space \n \e \e \d \space \n \o \t \space \f \o \r \space \l \o \g \i \c \, \space \t \o \o \newline \( \n \o \t \space \t \r \u \e \) \space \; \space \= \> \space \f \a \l \s \e \newline \; \space \N \e \s \t \i \n \g \space \f \o \r \m \s \space \w \o \r \k \s \space \a \s \space \y \o \u \space \e \x \p \e \c \t \newline \( \+ \space \1 \space \( \- \space \3 \space \2 \) \) \space \; \space \= \space \1 \space \+ \space \( \3 \space \- \space \2 \) \space \= \> \space \2 \newline \; \space \T \y \p \e \s \newline \; \; \; \; \; \; \; \; \; \; \; \; \; \newline \; \space \C \l \o \j \u \r \e \space \u \s \e \s \space \J \a \v \a \' \s \space \o \b \j \e \c \t \space \t \y \p \e \s \space \f \o \r \space \b \o \o \l \e \a \n \s \, \space \s \t \r \i \n \g \s \space \a \n \d \space \n \u \m \b \e \r \s \. \newline \; \space \I \f \space \y \o \u \space \w \a \n \t \space \t \o \space \c \r \e \a \t \e \space \a \space \l \i \t \e \r \a \l \space \l \i \s \t \space \o \f \space \d \a \t \a \, \space \u \s \e \space \' \space \t \o \space \s \t \o \p \space \i \t \space \f \r \o \m \newline \; \space \b \e \i \n \g \space \e \v \a \l \u \a \t \e \d \newline \' \( \+ \space \1 \space \2 \) \space \; \space \= \> \space \( \+ \space \1 \space \2 \) \newline \; \space \( \s \h \o \r \t \h \a \n \d \space \f \o \r \space \( \q \u \o \t \e \space \( \+ \space \1 \space \2 \) \) \) \newline \; \space \Y \o \u \space \c \a \n \space \e \v \a \l \space \a \space \q \u \o \t \e \d \space \l \i \s \t \newline \( \e \v \a \l \space \' \( \+ \space \1 \space \2 \) \) \space \; \space \= \> \space \3 \newline \; \space \C \o \l \l \e \c \t \i \o \n \s \space \& \space \S \e \q \u \e \n \c \e \s \newline \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \newline \; \space \L \i \s \t \s \space \a \r \e \space \l \i \n \k \e \d \- \l \i \s \t \space \d \a \t \a \space \s \t \r \u \c \t \u \r \e \s \, \space \w \h \i \l \e \space \V \e \c \t \o \r \s \space \a \r \e \space \a \r \r \a \y \- \b \a \c \k \e \d \. \newline \; \space \A \space \l \i \s \t \space \w \o \u \l \d \space \b \e \space \w \r \i \t \t \e \n \space \a \s \space \j \u \s \t \space \( \1 \space \2 \space \3 \) \, \space \b \u \t \space \w \e \space \h \a \v \e \space \t \o \space \q \u \o \t \e \newline \; \space \i \t \space \t \o \space \s \t \o \p \space \t \h \e \space \r \e \a \d \e \r \space \t \h \i \n \k \i \n \g \space \i \t \' \s \space \a \space \f \u \n \c \t \i \o \n \. \newline \; \space \A \l \s \o \, \space \( \l \i \s \t \space \1 \space \2 \space \3 \) \space \i \s \space \t \h \e \space \s \a \m \e \space \a \s \space \' \( \1 \space \2 \space \3 \) \newline \; \space \" \C \o \l \l \e \c \t \i \o \n \s \" \space \a \r \e \space \j \u \s \t \space \g \r \o \u \p \s \space \o \f \space \d \a \t \a \newline \; \space \B \o \t \h \space \l \i \s \t \s \space \a \n \d \space \v \e \c \t \o \r \s \space \a \r \e \space \c \o \l \l \e \c \t \i \o \n \s \: \newline \( \c \o \l \l \? \space \' \( \1 \space \2 \space \3 \) \) \space \; \space \= \> \space \t \r \u \e \newline \( \c \o \l \l \? \space \[ \1 \space \2 \space \3 \] \) \space \; \space \= \> \space \t \r \u \e \newline \; \space \" \S \e \q \u \e \n \c \e \s \" \space \( \s \e \q \s \) \space \a \r \e \space \a \b \s \t \r \a \c \t \space \d \e \s \c \r \i \p \t \i \o \n \s \space \o \f \space \l \i \s \t \s \space \o \f \space \d \a \t \a \. \newline \; \space \O \n \l \y \space \l \i \s \t \s \space \a \r \e \space \s \e \q \s \. \newline \( \s \e \q \? \space \' \( \1 \space \2 \space \3 \) \) \space \; \space \= \> \space \t \r \u \e \newline \( \s \e \q \? \space \[ \1 \space \2 \space \3 \] \) \space \; \space \= \> \space \f \a \l \s \e \newline \; \space \A \space \s \e \q \space \n \e \e \d \space \o \n \l \y \space \p \r \o \v \i \d \e \space \a \n \space \e \n \t \r \y \space \w \h \e \n \space \i \t \space \i \s \space \a \c \c \e \s \s \e \d \. \newline \; \space \S \o \, \space \s \e \q \s \space \w \h \i \c \h \space \c \a \n \space \b \e \space \l \a \z \y \space \- \- \space \t \h \e \y \space \c \a \n \space \d \e \f \i \n \e \space \i \n \f \i \n \i \t \e \space \s \e \r \i \e \s \: \newline \( \r \a \n \g \e \space \4 \) \space \; \space \= \> \space \( \0 \space \1 \space \2 \space \3 \) \newline \( \r \a \n \g \e \) \space \; \space \= \> \space \( \0 \space \1 \space \2 \space \3 \space \4 \space \. \. \. \) \space \( \a \n \space \i \n \f \i \n \i \t \e \space \s \e \r \i \e \s \) \newline \( \t \a \k \e \space \4 \space \( \r \a \n \g \e \) \) \space \; \space \space \( \0 \space \1 \space \2 \space \3 \) \newline \; \space \U \s \e \space \c \o \n \s \space \t \o \space \a \d \d \space \a \n \space \i \t \e \m \space \t \o \space \t \h \e \space \b \e \g \i \n \n \i \n \g \space \o \f \space \a \space \l \i \s \t \space \o \r \space \v \e \c \t \o \r \newline \( \c \o \n \s \space \4 \space \[ \1 \space \2 \space \3 \] \) \space \; \space \= \> \space \( \4 \space \1 \space \2 \space \3 \) \newline \( \c \o \n \s \space \4 \space \' \( \1 \space \2 \space \3 \) \) \space \; \space \= \> \space \( \4 \space \1 \space \2 \space \3 \) \newline \; \space \C \o \n \j \space \w \i \l \l \space \a \d \d \space \a \n \space \i \t \e \m \space \t \o \space \a \space \c \o \l \l \e \c \t \i \o \n \space \i \n \space \t \h \e \space \m \o \s \t \space \e \f \f \i \c \i \e \n \t \space \w \a \y \. \newline \; \space \F \o \r \space \l \i \s \t \s \, \space \t \h \e \y \space \i \n \s \e \r \t \space \a \t \space \t \h \e \space \b \e \g \i \n \n \i \n \g \. \space \F \o \r \space \v \e \c \t \o \r \s \, \space \t \h \e \y \space \i \n \s \e \r \t \space \a \t \space \t \h \e \space \e \n \d \. \newline \( \c \o \n \j \space \[ \1 \space \2 \space \3 \] \space \4 \) \space \; \space \= \> \space \[ \1 \space \2 \space \3 \space \4 \] \newline \( \c \o \n \j \space \' \( \1 \space \2 \space \3 \) \space \4 \) \space \; \space \= \> \space \( \4 \space \1 \space \2 \space \3 \) \newline \; \space \U \s \e \space \c \o \n \c \a \t \space \t \o \space \a \d \d \space \l \i \s \t \s \space \o \r \space \v \e \c \t \o \r \s \space \t \o \g \e \t \h \e \r \newline \( \c \o \n \c \a \t \space \[ \1 \space \2 \] \space \' \( \3 \space \4 \) \) \space \; \space \= \> \space \( \1 \space \2 \space \3 \space \4 \) \newline \; \space \U \s \e \space \f \i \l \t \e \r \, \space \m \a \p \space \t \o \space \i \n \t \e \r \a \c \t \space \w \i \t \h \space \c \o \l \l \e \c \t \i \o \n \s \newline \( \m \a \p \space \i \n \c \space \[ \1 \space \2 \space \3 \] \) \space \; \space \= \> \space \( \2 \space \3 \space \4 \) \newline \( \f \i \l \t \e \r \space \e \v \e \n \? \space \[ \1 \space \2 \space \3 \] \) \space \; \space \= \> \space \( \2 \) \newline \; \space \U \s \e \space \r \e \d \u \c \e \space \t \o \space \r \e \d \u \c \e \space \t \h \e \m \newline \( \r \e \d \u \c \e \space \+ \space \[ \1 \space \2 \space \3 \space \4 \] \) \newline \; \space \= \space \( \+ \space \( \+ \space \( \+ \space \1 \space \2 \) \space \3 \) \space \4 \) \newline \; \space \= \> \space \1 \0 \newline \; \space \R \e \d \u \c \e \space \c \a \n \space \t \a \k \e \space \a \n \space \i \n \i \t \i \a \l \- \v \a \l \u \e \space \a \r \g \u \m \e \n \t \space \t \o \o \newline \( \r \e \d \u \c \e \space \c \o \n \j \space \[ \] \space \' \( \3 \space \2 \space \1 \) \) \newline \; \space \= \space \( \c \o \n \j \space \( \c \o \n \j \space \( \c \o \n \j \space \[ \] \space \3 \) \space \2 \) \space \1 \) \newline \; \space \= \> \space \[ \3 \space \2 \space \1 \] \newline \; \space \F \u \n \c \t \i \o \n \s \newline \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \newline \newline \; \space \U \s \e \space \f \n \space \t \o \space \c \r \e \a \t \e \space \n \e \w \space \f \u \n \c \t \i \o \n \s \. \space \A \space \f \u \n \c \t \i \o \n \space \a \l \w \a \y \s \space \r \e \t \u \r \n \s \newline \; \space \i \t \s \space \l \a \s \t \space \s \t \a \t \e \m \e \n \t \. \newline \( \f \n \space \[ \] \space \" \H \e \l \l \o \space \W \o \r \l \d \" \) \space \; \space \= \> \space \f \n \newline \; \space \( \Y \o \u \space \n \e \e \d \space \e \x \t \r \a \space \p \a \r \e \n \s \space \t \o \space \c \a \l \l \space \i \t \) \newline \( \( \f \n \space \[ \] \space \" \H \e \l \l \o \space \W \o \r \l \d \" \) \) \space \; \space \= \> \space \" \H \e \l \l \o \space \W \o \r \l \d \" \newline \; \space \Y \o \u \space \c \a \n \space \c \r \e \a \t \e \space \a \space \v \a \r \space \u \s \i \n \g \space \d \e \f \newline \( \d \e \f \space \x \space \1 \) \newline \x \space \; \space \= \> \space \1 \newline \; \space \A \s \s \i \g \n \space \a \space \f \u \n \c \t \i \o \n \space \t \o \space \a \space \v \a \r \newline \( \d \e \f \space \h \e \l \l \o \- \w \o \r \l \d \space \( \f \n \space \[ \] \space \" \H \e \l \l \o \space \W \o \r \l \d \" \) \) \newline \( \h \e \l \l \o \- \w \o \r \l \d \) \space \; \space \= \> \space \" \H \e \l \l \o \space \W \o \r \l \d \" \newline \; \space \Y \o \u \space \c \a \n \space \s \h \o \r \t \e \n \space \t \h \i \s \space \p \r \o \c \e \s \s \space \b \y \space \u \s \i \n \g \space \d \e \f \n \newline \( \d \e \f \n \space \h \e \l \l \o \- \w \o \r \l \d \space \[ \] \space \" \H \e \l \l \o \space \W \o \r \l \d \" \) \newline \; \space \T \h \e \space \[ \] \space \i \s \space \t \h \e \space \l \i \s \t \space \o \f \space \a \r \g \u \m \e \n \t \s \space \f \o \r \space \t \h \e \space \f \u \n \c \t \i \o \n \. \newline \( \d \e \f \n \space \h \e \l \l \o \space \[ \n \a \m \e \] \newline \space \space \( \s \t \r \space \" \H \e \l \l \o \space \" \space \n \a \m \e \) \) \newline \( \h \e \l \l \o \space \" \S \t \e \v \e \" \) \space \; \space \= \> \space \" \H \e \l \l \o \space \S \t \e \v \e \" \newline \; \space \Y \o \u \space \c \a \n \space \a \l \s \o \space \u \s \e \space \t \h \i \s \space \s \h \o \r \t \h \a \n \d \space \t \o \space \c \r \e \a \t \e \space \f \u \n \c \t \i \o \n \s \: \newline \( \d \e \f \space \h \e \l \l \o \2 \space \# \( \s \t \r \space \" \H \e \l \l \o \space \" \space \% \1 \) \) \newline \( \h \e \l \l \o \2 \space \" \J \u \l \i \e \" \) \space \; \space \= \> \space \" \H \e \l \l \o \space \J \u \l \i \e \" \newline \; \space \U \s \e \f \u \l \space \f \o \r \m \s \newline \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \newline \; \space \L \o \g \i \c \space \c \o \n \s \t \r \u \c \t \s \space \i \n \space \c \l \o \j \u \r \e \space \a \r \e \space \j \u \s \t \space \m \a \c \r \o \s \, \space \a \n \d \space \l \o \o \k \space \l \i \k \e \newline \; \space \e \v \e \r \y \t \h \i \n \g \space \e \l \s \e \newline \( \i \f \space \f \a \l \s \e \space \" \a \" \space \" \b \" \) \space \; \space \= \> \space \" \b \" \newline \( \i \f \space \f \a \l \s \e \space \" \a \" \) \space \; \space \= \> \space \n \i \l \newline \; \space \U \s \e \space \l \e \t \space \t \o \space \c \r \e \a \t \e \space \t \e \m \p \o \r \a \r \y \space \b \i \n \d \i \n \g \s \newline \( \l \e \t \space \[ \a \space \1 \space \b \space \2 \] \newline \space \space \( \> \space \a \space \b \) \) \space \; \space \= \> \space \f \a \l \s \e \newline \; \space \G \r \o \u \p \space \s \t \a \t \e \m \e \n \t \s \space \t \o \g \e \t \h \e \r \space \w \i \t \h \space \d \o \newline \( \d \o \newline \space \space \( \p \r \i \n \t \space \" \H \e \l \l \o \" \) \newline \space \space \" \W \o \r \l \d \" \) \space \; \space \= \> \space \" \W \o \r \l \d \" \space \( \p \r \i \n \t \s \space \" \H \e \l \l \o \" \) \newline \; \space \F \u \n \c \t \i \o \n \s \space \h \a \v \e \space \a \n \space \i \m \p \l \i \c \i \t \space \d \o \newline \( \d \e \f \n \space \p \r \i \n \t \- \a \n \d \- \s \a \y \- \h \e \l \l \o \space \[ \n \a \m \e \] \newline \space \space \( \p \r \i \n \t \space \" \S \a \y \i \n \g \space \h \e \l \l \o \space \t \o \space \" \space \n \a \m \e \) \newline \space \space \( \s \t \r \space \" \H \e \l \l \o \space \" \space \n \a \m \e \) \) \newline \( \p \r \i \n \t \- \a \n \d \- \s \a \y \- \h \e \l \l \o \space \" \J \e \f \f \" \) \space \; \= \> \space \" \H \e \l \l \o \space \J \e \f \f \" \space \( \p \r \i \n \t \s \space \" \S \a \y \i \n \g \space \h \e \l \l \o \space \t \o \space \J \e \f \f \" \) \newline \; \space \T \o \m \a \d \o \space \d \e \space \h \t \t \p \s \: \/ \/ \l \e \a \r \n \x \i \n \y \m \i \n \u \t \e \s \. \c \o \m \/ \d \o \c \s \/ \c \l \o \j \u \r \e \/ \newline \newline \; \space \N \e \s \t \i \n \g \space \f \o \r \m \s \space \w \o \r \k \s \space \a \s \space \y \o \u \space \e \x \p \e \c \t \newline \( \+ \space \1 \space \( \- \space \3 \space \2 \) \) \space \; \space \= \space \1 \space \+ \space \( \3 \space \- \space \2 \) \space \= \> \space \2 \newline \newline \1 \. \2 \space \newline \1 \. \2 \e \3 \space \newline \1 \. \2 \space \e \space \3 \space \newline \1 \. \2 \space \e \3 \space)
+(concat '() (list (list (list 101) (reverse (next (reverse '(123 )))))))
+resaltadorv3.core=>
+(((101) ()))
+(concat '() (list (list (list 101) (reverse (next (reverse '(\1 \2 \3)))))))
+resaltadorv3.core=>
+(((101) (\1 \2)))
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(main)
+Execution error (StackOverflowError) at resaltadorv3.core/followAFD (core.clj:45).
+null
+(followAFD transiciones \space 3)
+resaltadorv3.core=>
+-1
+--------------------
+(map (fn [x] (followAFD transiciones x 0)) '(\1 \2 \space \; \+ \()))

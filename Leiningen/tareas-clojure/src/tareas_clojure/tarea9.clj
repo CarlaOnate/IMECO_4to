@@ -1,6 +1,6 @@
 ;cmd+alt+l -> repl windo
 
-(ns Tareas.Tarea9
+(ns tareas-clojure.tarea9
   (:gen-class))
 
 (defn -main

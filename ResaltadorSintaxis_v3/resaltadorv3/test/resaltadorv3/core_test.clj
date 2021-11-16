@@ -1,6 +1,6 @@
-(ns probando.core-test
+(ns resaltadorv3.core-test
   (:require [clojure.test :refer :all]
-            [probando.core :refer :all]))
+            [resaltadorv3.core :refer :all]))
 
 (deftest a-test
   (testing "FIXME, I fail."

@@ -87,7 +87,7 @@
                     (write-string "<html>" outFile)
                     (write-string "<head><title>SuperMegaCoolResaltador</title>" outFile)
                     (write-string "<body style=\"white-space: pre\">" outFile)
-                    (write-string "<div><p/>" outFile)))
+                    (write-string "<div><p>" outFile)))
 
 
 (define writeEnd (lambda () ;O(1)
