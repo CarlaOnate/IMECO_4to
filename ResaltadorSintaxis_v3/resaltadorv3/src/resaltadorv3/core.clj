@@ -13,8 +13,7 @@
 (1 \. 2) (2 "number" 2) (2 "letter-e" 102) (2 "special" 102) (2 "parenthesis" 102) (2 \space 102) (2 \newline 102) (2 \e 3)
 (3 "number" 103)
 (0 \" 4) (4 "letter-e" 4) (4 \e 4) (4 "number" 4) (4 \space 4) (4 "special" 4) (4 "parenthesis" 104) (4 \" 104)
-(0 "letter-e" 5) (0 \e 5) (5 "letter-e" 5) (5 \e 5) (5 "number" 5) (5 "special" 5) (5 "parenthesis" 105) (5 \space 105)
-(5 \; 105) (5 \. 105) (5 \newline 105)
+(0 "letter-e" 5) (0 \e 5) (5 "letter-e" 5) (5 \e 5) (5 "number" 5) (5 "special" 5) (5 "parenthesis" 105) (5 \space 105) (5 \; 105) (5 \. 105) (5 \newline 105)
 (0 \; 6) (6 \; 6) (6 "letter-e" 6) (6 \e 6) (6 "number" 6) (6 \" 6) (6 "special" 6) (6 "parenthesis" 6) (6 \< 6) (6 \= 6) (6 \> 6)
 (6 \space 6) (6 \. 6) (6 \newline 106)
 (0 \< 7) (0 \> 7) (7 \= 208) (7 "letter-e" 200) (7 \e 200) (7 "number" 200) (7 "special" 200) (7 "parenthesis" 200) (7 \space 200)
@@ -40,6 +39,14 @@
     (seq? (first afd)) (max (followAFD (first afd) simbolo estado) (followAFD (next afd) simbolo estado))
     (not (seq? (first afd))) (if (and (= (nth afd 1) simbolo) (= (first afd) estado)) (nth afd 2) -1)
     :else (followAFD (next afd) simbolo estado)))
+
+; recibe (0 simbolo 0)
+(defn mapAFD [el simbolo estado] (if (and (= (second el) simbolo) (= (first el) estado)) (nth el 2) -1))
+
+(defn returnNumerical [x] (if x x 0))
+
+(defn followAFD2 [afd simbolo estado]
+  (returnNumerical (some #(when (pos? %) %) (map (fn [x] (mapAFD x simbolo estado)) transiciones))))
 
 
 (defn reserved? [word]
@@ -71,11 +78,11 @@
                                 (str "<span style=\"color:#5da28c\">" (apply str (second listEl)) "</span>"))
    (= (first (first listEl)) 106) (str "<span style=\"color:#1a9fe5\">" (apply str (second listEl)) "</span></p><p>")
    (= (first (first listEl)) 200) (str "<span style=\"color:#e1931e\">" (if (seq? (second listEl))
-                                                                                (apply str (second listEl))
-                                                                                (str (second listEl))) "</span>")
-   (= (first (first listEl)) 209) (str "<span style=\"color:#e817a2\">" (apply str (if (seq? (second listEl))
-                                                                                              (second listEl)
-                                                                                              (list (second listEl)))) "</span>")
+                                                        (apply str (second listEl))
+                                                        (str (second listEl))) "</span>")
+(= (first (first listEl)) 209) (str "<span style=\"color:#e817a2\">" (apply str (if (seq? (second listEl))
+  (second listEl)
+  (list (second listEl)))) "</span>")
    (= (first (first listEl)) 201) "</p><p>"
    (and (= (first (first listEl)) -1) (= (second listEl) \space)) " "
    :else (str "<span style=\"color:black\">"(apply str (second listEl))"</span>")))
@@ -89,15 +96,27 @@
           (= (first (first el) "end")) (writeEnd w)
           :else (.write w (htmlTag el)))) resList)))
 
+
+(defn findPattern2 [file state word res]
+  (loop [f file s state w word r res] (when (not (nil? file))
+    (cond
+      (nil? f) (concat r (list (list (list s) w)) (list (list (list "end"))))
+      (= s -1) (recur (next f) 0 (concat w (list (first f))) r)
+      (> s 100) (if (some (fn [x] (= s x)) estados*)
+        (recur (concat (list (first (reverse w))) f) 0 '() (concat r (list (list (list s) (reverse (next (reverse w)))))))
+        (recur f 0 '() (concat r (list (list (list s) w)))))
+   :else (recur (next f) (followAFD2 transiciones (letterToSymbol (first f)) s) (concat w (list (first f))) r)))))
+
+
 (defn findPattern [file state word res]
  (cond
-   ;(empty? file) (writeHTML (concat res (list (list (list state) word)) (list (list (list "end"))))) ;TODO aqui hay algo raro
-   (empty? file) res
+   (nil? file) (concat res (list (list (list state) word)) (list (list (list "end"))))
    (= state -1) (findPattern (next file) 0 (concat word (list (first file))) res)
    (> state 100) (if (some (fn [x] (= state x)) estados*)
-                  (findPattern (concat (list (first (reverse word))) file) 0 '() (concat res (list (list (list state) (reverse (next (reverse word)))))))
-                  (findPattern file 0 '() (concat res (list (list (list state) word)))))
-   :else (findPattern (next file) (followAFD transiciones (letterToSymbol (first file)) state) (concat word (list (first file))) res)))
+      (findPattern (concat (list (first (reverse word))) file) 0 '() (concat res (list (list (list state) (reverse (next (reverse word)))))))
+      (findPattern file 0 '() (concat res (list (list (list state) word)))))
+   :else (findPattern (next file) (followAFD2 transiciones (letterToSymbol (first file)) state) (concat word (list (first file))) res)))
+
 
 (defn main []
     (findPattern listFile 0 '() '((("begin")))))

@@ -1,0 +1,13 @@
+;; This program displays Hello World
+(defn Example []
+   (println "Hello World"))
+; Comments start with semicolons.
+; The clojure reader assumes that the first thing is a
+; function or macro to call, and the rest are arguments.
+; More basic examples:
+; Math is straightforward
+(+ 1 1) ; => 2
+(- 2 1) ; => 1
+(* 1 2) ; => 2
+(/ 2 1) ; => 2
+; Equality is =
