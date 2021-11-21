@@ -5,7 +5,7 @@
 (def reservedWords '("println" "def" "if" "cond" "defn" "fn" "else" "true" "false" "nil" "cons" "first" "second" "rest" "next" "concat" "map" "apply" "filter" "reduce" "pmap" "let" "seq" "conj" "do" "and" "or"
 "not" "not=" "quote" "empty?" "take" "range" "doall" "time" "future" "delay" "promise"))
 
-(def listFile (seq (slurp "src/resaltadorv3/datos.txt")))
+; (def listFile (seq (slurp "src/resaltadorv3/datos.txt")))
 
 ; lista transiciones
 (def transiciones '((0 \space 0) (0 \newline 201) (0 "number" 1) (1 "number" 1) (1 "letter-e" 101) (1 \e 101) (1 "special" 101) (1 "parenthesis" 101)
@@ -40,6 +40,7 @@
     (not (seq? (first afd))) (if (and (= (nth afd 1) simbolo) (= (first afd) estado)) (nth afd 2) -1)
     :else (followAFD (next afd) simbolo estado)))
 
+; TODO: DOES NOT FOLLOW AFD CORRECTLY
 ; recibe (0 simbolo 0)
 (defn mapAFD [el simbolo estado] (if (and (= (second el) simbolo) (= (first el) estado)) (nth el 2) -1))
 
@@ -50,21 +51,12 @@
 
 
 (defn reserved? [word]
-                  (some (fn [x] (= (apply str (filter #(not= \space %) '(\d \e \f \n \space))) x)) reservedWords))
+      (some (fn [x] (= (apply str (filter #(not= \space %) word)) x)) reservedWords))
 
 
-(defn writeHead [file]
-                    (.write file "<!DOCTYPEhtml>")
-                    (.write file "<html>")
-                    (.write file "<head><title>SuperMegaCoolResaltador</title>")
-                    (.write file "<body style=\"white-space: pre\">")
-                    (.write file "<div><p>"))
+(def htmlHead "<!DOCTYPEhtml><html><head><title>SuperMegaCoolResaltador</title><body style=\"white-space: pre\"><div><p>")
 
-
-(defn writeEnd [file]
-                    (.write file "</p></div>")
-                    (.write file "</body>")
-                    (.write file "</html>"))
+(def htmlEnd "</p></div></body></html>")
 
 
 (defn htmlTag [listEl]
@@ -74,12 +66,10 @@
    (= (first (first listEl)) 103) (str "<span style=\"color: orange\">" (apply str (second listEl)) "</span>")
    (= (first (first listEl)) 104) (str "<span style=\"color: blue\">" (apply str (second listEl)) "</span>")
    (= (first (first listEl)) 105) (if (reserved? (second listEl))
-                                (str "<span style=\"color:#bd42bd\">" (apply str (second listEl)) "</span>")
-                                (str "<span style=\"color:#5da28c\">" (apply str (second listEl)) "</span>"))
+        (str "<span style=\"color:#bd42bd\">" (apply str (second listEl)) "</span>")
+        (str "<span style=\"color:#5da28c\">" (apply str (second listEl)) "</span>"))
    (= (first (first listEl)) 106) (str "<span style=\"color:#1a9fe5\">" (apply str (second listEl)) "</span></p><p>")
-   (= (first (first listEl)) 200) (str "<span style=\"color:#e1931e\">" (if (seq? (second listEl))
-                                                        (apply str (second listEl))
-                                                        (str (second listEl))) "</span>")
+   (= (first (first listEl)) 200) (str "<span style=\"color:#e1931e\">" (if (seq? (second listEl)) (apply str (second listEl)) (str (second listEl))) "</span>")
 (= (first (first listEl)) 209) (str "<span style=\"color:#e817a2\">" (apply str (if (seq? (second listEl))
   (second listEl)
   (list (second listEl)))) "</span>")
@@ -88,35 +78,49 @@
    :else (str "<span style=\"color:black\">"(apply str (second listEl))"</span>")))
 
 
-(defn writeHTML [resList]
-  (with-open [w (clojure.java.io/writer "datos.html" :append true)]
-    (map (fn [el]
-        (cond
-          (= (first (first el) "begin")) (writeHead w)
-          (= (first (first el) "end")) (writeEnd w)
-          :else (.write w (htmlTag el)))) resList)))
+(defn writeHTML [resList] (spit "datos.html"
+  (str htmlHead (apply str (map (fn [el] (htmlTag el)) resList)) htmlEnd)))
+
+(defn pwriteHTML [fileName resList]
+  (spit (str (subs fileName 0 (- (count fileName) 4)) ".html")
+    (str htmlHead (apply str (map (fn [el] (htmlTag el)) resList)) htmlEnd)))
+
+; (defn findPattern2 [file state word res]
+;   (loop [f file s state w word r res] (when (not (nil? file))
+;     (cond
+;       (nil? f) (concat r (list (list (list s) w)) (list (list (list "end"))))
+;       (= s -1) (recur (next f) 0 (concat w (list (first f))) r)
+;       (> s 100) (if (some (fn [x] (= s x)) estados*)
+;         (recur (concat (list (first (reverse w))) f) 0 '() (concat r (list (list (list s) (reverse (next (reverse w)))))))
+;         (recur f 0 '() (concat r (list (list (list s) w)))))
+;    :else (recur (next f) (followAFD transiciones (letterToSymbol (first f)) s) (concat w (list (first f))) r)))))
 
 
-(defn findPattern2 [file state word res]
-  (loop [f file s state w word r res] (when (not (nil? file))
+(defn findPattern2HTML [file state word res]
+ (loop [f file s state w word r res] (when (not (nil? file))
+   (cond
+     (nil? f) (writeHTML (concat r (list (list (list s) w)) (list (list (list "end")))))
+     (= s -1) (recur (next f) 0 (concat w (list (first f))) r)
+     (> s 100) (if (some (fn [x] (= s x)) estados*)
+       (recur (concat (list (first (reverse w))) f) 0 '() (concat r (list (list (list s) (reverse (next (reverse w)))))))
+       (recur f 0 '() (concat r (list (list (list s) w)))))
+  :else (recur (next f) (followAFD transiciones (letterToSymbol (first f)) s) (concat w (list (first f))) r)))))
+
+
+(defn pfindPattern2HTML [filename file state word res]
+  (loop [fname filename f file s state w word r res] (when (not (nil? file))
     (cond
-      (nil? f) (concat r (list (list (list s) w)) (list (list (list "end"))))
-      (= s -1) (recur (next f) 0 (concat w (list (first f))) r)
+      (nil? f) (pwriteHTML fname (concat r (list (list (list s) w)) (list (list (list "end")))))
+      (= s -1) (recur fname (next f) 0 (concat w (list (first f))) r)
       (> s 100) (if (some (fn [x] (= s x)) estados*)
-        (recur (concat (list (first (reverse w))) f) 0 '() (concat r (list (list (list s) (reverse (next (reverse w)))))))
-        (recur f 0 '() (concat r (list (list (list s) w)))))
-   :else (recur (next f) (followAFD2 transiciones (letterToSymbol (first f)) s) (concat w (list (first f))) r)))))
+        (recur fname (concat (list (first (reverse w))) f) 0 '() (concat r (list (list (list s) (reverse (next (reverse w)))))))
+        (recur fname f 0 '() (concat r (list (list (list s) w)))))
+   :else (recur fname (next f) (followAFD transiciones (letterToSymbol (first f)) s) (concat w (list (first f))) r)))))
 
 
-(defn findPattern [file state word res]
- (cond
-   (nil? file) (concat res (list (list (list state) word)) (list (list (list "end"))))
-   (= state -1) (findPattern (next file) 0 (concat word (list (first file))) res)
-   (> state 100) (if (some (fn [x] (= state x)) estados*)
-      (findPattern (concat (list (first (reverse word))) file) 0 '() (concat res (list (list (list state) (reverse (next (reverse word)))))))
-      (findPattern file 0 '() (concat res (list (list (list state) word)))))
-   :else (findPattern (next file) (followAFD2 transiciones (letterToSymbol (first file)) state) (concat word (list (first file))) res)))
+; (defn main []
+;     (findPattern2HTML listFile 0 '() '((("begin")))))
 
-
-(defn main []
-    (findPattern listFile 0 '() '((("begin")))))
+;(mainp '("src/resaltadorv3/dato1.txt" "src/resaltadorv3/dato2.txt"))
+(defn mainp [listFiles] ;(map #(seq (slurp %)) listFiles))
+  (pmap (fn [filePath] (pfindPattern2HTML filePath (seq (slurp filePath)) 0 '() '())) listFiles))

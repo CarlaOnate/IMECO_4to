@@ -14,7 +14,7 @@ Executes the selection. Sends the selected text to the REPL.
 
 You can disable this help text in the settings.
 Starting REPL with lein in /Users/carla/Documents/ITC-Tec/Ago-Dic21/IMECO_Compu/IMECO_4to/ResaltadorSintaxis_v3/resaltadorv3
-nREPL server started on port 57329 on host 127.0.0.1 - nrepl://127.0.0.1:57329
+nREPL server started on port 49226 on host 127.0.0.1 - nrepl://127.0.0.1:49226
 Refreshing code...
 No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
 
@@ -22,184 +22,31 @@ No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
 Refresh complete
 (in-ns 'resaltadorv3.core)
 resaltadorv3.core=>
-#object[clojure.lang.Namespace 0x719a4f10 "resaltadorv3.core"]
-(findPattern listFile 0 '() '())
-Execution error (StackOverflowError) at resaltadorv3.core/followAFD (core.clj:40).
-null
-(followAFD transiciones \space 0)
-resaltadorv3.core=>
-0
-(followAFD transiciones 1 0)
-resaltadorv3.core=>
--1
-(followAFD transiciones \; 0)
-resaltadorv3.core=>
-6
-Refreshing code...
-No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
-
-:reloading (resaltadorv3.core resaltadorv3.core-test)
-:error-while-loading resaltadorv3.core
-Syntax error compiling at (resaltadorv3/core.clj:1:412).
-Refresh complete
+[clojure.lang.Namespace 89415801 "resaltadorv3.core"]
+(pmap '("dato1.txt" "dato2.txt"))
+Execution error (ArityException) at resaltadorv3.core/eval3766 (form-init8578284741684211005.clj:1).
+Wrong number of args (1) passed to: clojure.core/pmap
+(mainp '("dato1.txt" "dato2.txt"))
+Error printing return value (FileNotFoundException) at java.io.FileInputStream/open0 (FileInputStream.java:-2).
+dato1.txt (No such file or directory)
 Refreshing code...
 No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
 
 :reloading (resaltadorv3.core resaltadorv3.core-test)
 Refresh complete
-[org.clojure/tools.trace "0.7.9"]
-(require 'clojure.tools.trace)
-Syntax error (ClassNotFoundException) compiling at (/private/var/folders/5c/43_1g8s55f3cvpcthrmsmwt40000gn/T/form-init10450930022745131433.clj:1:1).
-org.clojure
-(dotrace [followAFD] (followAFD transiciones \; 0))
-Syntax error compiling at (/private/var/folders/5c/43_1g8s55f3cvpcthrmsmwt40000gn/T/form-init10450930022745131433.clj:1:5).
-Unable to resolve symbol: dotrace in this context
+(mainp '("dato1.txt" "dato2.txt"))
+Error printing return value (FileNotFoundException) at java.io.FileInputStream/open0 (FileInputStream.java:-2).
+dato1.txt (No such file or directory)
+(mainp '("src/resaltadorv3/dato1.txt" "src/resaltadorv3/dato2.txt"))
+resaltadorv3.core=>
+((\; \; \space \T \h \i \s \space \p \r \o \g \r \a \m \space \d \i \s \p \l \a \y \s \space \H \e \l \l \o \space \W \o \r \l \d \newline \( \d \e \f \n \space \E \x \a \m \p \l \e \space \[ \] \newline \space \space \space \( \p \r \i \n \t \l \n \space \" \H \e \l \l \o \space \W \o \r \l \d \" \) \) \newline \; \space \C \o \m \m \e \n \t \s \space \s \t \a \r \t \space \w \i \t \h \space \s \e \m \i \c \o \l \o \n \s \. \newline \; \space \T \h \e \space \c \l \o \j \u \r \e \space \r \e \a \d \e \r \space \a \s \s \u \m \e \s \space \t \h \a \t \space \t \h \e \space \f \i \r \s \t \space \t \h \i \n \g \space \i \s \space \a \newline \; \space \f \u \n \c \t \i \o \n \space \o \r \space \m \a \c \r \o \space \t \o \space \c \a \l \l \, \space \a \n \d \space \t \h \e \space \r \e \s \t \space \a \r \e \space \a \r \g \u \m \e \n \t \s \. \newline \; \space \M \o \r \e \space \b \a \s \i \c \space \e \x \a \m \p \l \e \s \: \newline \; \space \M \a \t \h \space \i \s \space \s \t \r \a \i \g \h \t \f \o \r \w \a \r \d \newline \( \+ \space \1 \space \1 \) \space \; \space \= \> \space \2 \newline \( \- \space \2 \space \1 \) \space \; \space \= \> \space \1 \newline \( \* \space \1 \space \2 \) \space \; \space \= \> \space \2 \newline \( \/ \space \2 \space \1 \) \space \; \space \= \> \space \2 \newline \; \space \E \q \u \a \l \i \t \y \space \i \s \space \= \newline \( \= \space \1 \space \1 \) \space \; \space \= \> \space \t \r \u \e \newline \( \= \space \2 \space \1 \) \space \; \space \= \> \space \f \a \l \s \e \newline \; \space \Y \o \u \space \n \e \e \d \space \n \o \t \space \f \o \r \space \l \o \g \i \c \, \space \t \o \o \newline \( \n \o \t \space \t \r \u \e \) \space \; \space \= \> \space \f \a \l \s \e \newline \; \space \N \e \s \t \i \n \g \space \f \o \r \m \s \space \w \o \r \k \s \space \a \s \space \y \o \u \space \e \x \p \e \c \t \newline \( \+ \space \1 \space \( \- \space \3 \space \2 \) \) \space \; \space \= \space \1 \space \+ \space \( \3 \space \- \space \2 \) \space \= \> \space \2 \newline \; \space \T \y \p \e \s \newline) (\; \; \; \; \; \; \; \; \; \; \; \; \; \newline \; \space \C \l \o \j \u \r \e \space \u \s \e \s \space \J \a \v \a \' \s \space \o \b \j \e \c \t \space \t \y \p \e \s \space \f \o \r \space \b \o \o \l \e \a \n \s \, \space \s \t \r \i \n \g \s \space \a \n \d \space \n \u \m \b \e \r \s \. \newline \; \space \I \f \space \y \o \u \space \w \a \n \t \space \t \o \space \c \r \e \a \t \e \space \a \space \l \i \t \e \r \a \l \space \l \i \s \t \space \o \f \space \d \a \t \a \, \space \u \s \e \space \' \space \t \o \space \s \t \o \p \space \i \t \space \f \r \o \m \newline \; \space \b \e \i \n \g \space \e \v \a \l \u \a \t \e \d \newline \' \( \+ \space \1 \space \2 \) \space \; \space \= \> \space \( \+ \space \1 \space \2 \) \newline \; \space \( \s \h \o \r \t \h \a \n \d \space \f \o \r \space \( \q \u \o \t \e \space \( \+ \space \1 \space \2 \) \) \) \newline \; \space \Y \o \u \space \c \a \n \space \e \v \a \l \space \a \space \q \u \o \t \e \d \space \l \i \s \t \newline \( \e \v \a \l \space \' \( \+ \space \1 \space \2 \) \) \space \; \space \= \> \space \3 \newline \; \space \C \o \l \l \e \c \t \i \o \n \s \space \& \space \S \e \q \u \e \n \c \e \s \newline \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \newline \; \space \L \i \s \t \s \space \a \r \e \space \l \i \n \k \e \d \- \l \i \s \t \space \d \a \t \a \space \s \t \r \u \c \t \u \r \e \s \, \space \w \h \i \l \e \space \V \e \c \t \o \r \s \space \a \r \e \space \a \r \r \a \y \- \b \a \c \k \e \d \. \newline \; \space \A \space \l \i \s \t \space \w \o \u \l \d \space \b \e \space \w \r \i \t \t \e \n \space \a \s \space \j \u \s \t \space \( \1 \space \2 \space \3 \) \, \space \b \u \t \space \w \e \space \h \a \v \e \space \t \o \space \q \u \o \t \e \newline \; \space \i \t \space \t \o \space \s \t \o \p \space \t \h \e \space \r \e \a \d \e \r \space \t \h \i \n \k \i \n \g \space \i \t \' \s \space \a \space \f \u \n \c \t \i \o \n \. \newline \; \space \A \l \s \o \, \space \( \l \i \s \t \space \1 \space \2 \space \3 \) \space \i \s \space \t \h \e \space \s \a \m \e \space \a \s \space \' \( \1 \space \2 \space \3 \) \newline \; \space \" \C \o \l \l \e \c \t \i \o \n \s \" \space \a \r \e \space \j \u \s \t \space \g \r \o \u \p \s \space \o \f \space \d \a \t \a \newline \; \space \B \o \t \h \space \l \i \s \t \s \space \a \n \d \space \v \e \c \t \o \r \s \space \a \r \e \space \c \o \l \l \e \c \t \i \o \n \s \: \newline \( \c \o \l \l \? \space \' \( \1 \space \2 \space \3 \) \) \space \; \space \= \> \space \t \r \u \e \newline \( \c \o \l \l \? \space \[ \1 \space \2 \space \3 \] \) \space \; \space \= \> \space \t \r \u \e \newline \; \space \" \S \e \q \u \e \n \c \e \s \" \space \( \s \e \q \s \) \space \a \r \e \space \a \b \s \t \r \a \c \t \space \d \e \s \c \r \i \p \t \i \o \n \s \space \o \f \space \l \i \s \t \s \space \o \f \space \d \a \t \a \. \newline \; \space \O \n \l \y \space \l \i \s \t \s \space \a \r \e \space \s \e \q \s \. \newline \( \s \e \q \? \space \' \( \1 \space \2 \space \3 \) \) \space \; \space \= \> \space \t \r \u \e \newline \( \s \e \q \? \space \[ \1 \space \2 \space \3 \] \) \space \; \space \= \> \space \f \a \l \s \e \newline \; \space \A \space \s \e \q \space \n \e \e \d \space \o \n \l \y \space \p \r \o \v \i \d \e \space \a \n \space \e \n \t \r \y \space \w \h \e \n \space \i \t \space \i \s \space \a \c \c \e \s \s \e \d \. \newline))
 Refreshing code...
 No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
 
 :reloading (resaltadorv3.core resaltadorv3.core-test)
 Refresh complete
-(followADF2 transiciones simbolo estado)
-Syntax error compiling at (/private/var/folders/5c/43_1g8s55f3cvpcthrmsmwt40000gn/T/form-init10450930022745131433.clj:1:1).
-Unable to resolve symbol: simbolo in this context
-(followADF2 transiciones \; 0)
-(0   0)
-(0 
- 201)
-(0 number 1)
-(1 number 1)
-(1 letter-e 101)
-(1 e 101)
-(1 special 101)
-(1 parenthesis 101)
-(1 < 101)
-(1 = 101)
-(1 > 101)
-(1 ; 101)
-(1   101)
-(1 
- 101)
-(1 . 2)
-(2 number 2)
-(2 letter-e 102)
-(2 special 102)
-(2 parenthesis 102)
-(2   102)
-(2 
- 102)
-(2 e 3)
-(3 number 103)
-(0 " 4)
-(4 letter-e 4)
-(4 e 4)
-(4 number 4)
-(4   4)
-(4 special 4)
-(4 parenthesis 104)
-(4 " 104)
-(0 letter-e 5)
-(0 e 5)
-(5 letter-e 5)
-(5 e 5)
-(5 number 5)
-(5 special 5)
-(5 parenthesis 105)
-(5   105)
-(5 ; 105)
-(5 . 105)
-(5 
- 105)
-(0 ; 6)
-(6 ; 6)
-(6 letter-e 6)
-(6 e 6)
-(6 number 6)
-(6 " 6)
-(6 special 6)
-(6 parenthesis 6)
-(6 < 6)
-(6 = 6)
-(6 > 6)
-(6   6)
-(6 . 6)
-(6 
- 106)
-(0 < 7)
-(0 > 7)
-(7 = 208)
-(7 letter-e 200)
-(7 e 200)
-(7 number 200)
-(7 special 200)
-(7 parenthesis 200)
-(7   200)
-(7 
- 200)
-(0 special 200)
-(0 parenthesis 200)
-(0 . 200)
+(mainp '("src/resaltadorv3/dato1.txt" "src/resaltadorv3/dato2.txt"))
 resaltadorv3.core=>
-(nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil)
-Refreshing code...
-No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
-
-:reloading (resaltadorv3.core resaltadorv3.core-test)
-Refresh complete
-(followADF2 transiciones \; 0)
-resaltadorv3.core=>
-(-1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 6 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1)
-(some pos? '(0 6))
-resaltadorv3.core=>
-true
-(some #(when (pos? %) %) '(0 6))
-resaltadorv3.core=>
-6
-Refreshing code...
-No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
-
-:reloading (resaltadorv3.core resaltadorv3.core-test)
-Refresh complete
-(followADF2 transiciones \; 0)
-resaltadorv3.core=>
-6
-Refreshing code...
-No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
-
-:reloading (resaltadorv3.core resaltadorv3.core-test)
-:error-while-loading resaltadorv3.core
-Syntax error compiling at (resaltadorv3/core.clj:106:35).
-Refresh complete
-Refreshing code...
-No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
-
-:reloading (resaltadorv3.core resaltadorv3.core-test)
-Refresh complete
-(findPattern listFile 0 '() '())
-Execution error (NullPointerException) at resaltadorv3.core/findPattern (core.clj:103).
-Cannot invoke "Object.getClass()" because "x" is null
-(some #(when (pos? %) %) '(-1 -1))
-resaltadorv3.core=>
-nil
-Refreshing code...
-No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
-
-:reloading (resaltadorv3.core resaltadorv3.core-test)
-Refresh complete
-(followADF2 transiciones \; 0)
-resaltadorv3.core=>
-6
-Refreshing code...
-No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
-
-:reloading (resaltadorv3.core resaltadorv3.core-test)
-Refresh complete
-(followADF2 transiciones \1 0)
-resaltadorv3.core=>
-0
-(followADF2 transiciones \; 0)
-resaltadorv3.core=>
-6
-(findPattern listFile 0 '() '())
-Execution error (StackOverflowError) at resaltadorv3.core/mapAFD (core.clj:45).
-null
+(nil nil)
 --------------------
+(subs 0 (- (count "dato1.txt") 3))

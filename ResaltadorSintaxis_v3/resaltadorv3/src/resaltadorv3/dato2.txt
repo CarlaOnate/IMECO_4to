@@ -1,0 +1,23 @@
+;;;;;;;;;;;;;
+; Clojure uses Java's object types for booleans, strings and numbers.
+; If you want to create a literal list of data, use ' to stop it from
+; being evaluated
+'(+ 1 2) ; => (+ 1 2)
+; (shorthand for (quote (+ 1 2)))
+; You can eval a quoted list
+(eval '(+ 1 2)) ; => 3
+; Collections & Sequences
+;;;;;;;;;;;;;;;;;;;
+; Lists are linked-list data structures, while Vectors are array-backed.
+; A list would be written as just (1 2 3), but we have to quote
+; it to stop the reader thinking it's a function.
+; Also, (list 1 2 3) is the same as '(1 2 3)
+; "Collections" are just groups of data
+; Both lists and vectors are collections:
+(coll? '(1 2 3)) ; => true
+(coll? [1 2 3]) ; => true
+; "Sequences" (seqs) are abstract descriptions of lists of data.
+; Only lists are seqs.
+(seq? '(1 2 3)) ; => true
+(seq? [1 2 3]) ; => false
+; A seq need only provide an entry when it is accessed.
