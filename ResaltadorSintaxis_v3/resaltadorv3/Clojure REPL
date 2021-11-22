@@ -48,5 +48,130 @@ Refresh complete
 (mainp '("src/resaltadorv3/dato1.txt" "src/resaltadorv3/dato2.txt"))
 resaltadorv3.core=>
 (nil nil)
---------------------
 (subs 0 (- (count "dato1.txt") 3))
+Execution error (ClassCastException) at resaltadorv3.core/eval4406 (form-init8578284741684211005.clj:1).
+class java.lang.Long cannot be cast to class java.lang.String (java.lang.Long and java.lang.String are in module java.base of loader 'bootstrap')
+(count "dato1.txt")
+resaltadorv3.core=>
+9
+(- (count "dato1.txt") 3)
+resaltadorv3.core=>
+6
+(subs "dato1.txt" 0 (- (count "dato1.txt") 3))
+resaltadorv3.core=>
+"dato1."
+(subs "dato1.txt" 0 (- (count "dato1.txt") 4))
+resaltadorv3.core=>
+"dato1"
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(mainp '("src/resaltadorv3/dato1.txt" "src/resaltadorv3/dato2.txt"))
+resaltadorv3.core=>
+(nil nil)
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(findPattern2 '(\( \d \e \f \n \space \E \x \a \m \p \l \e \space \[) 0 '() '())
+resaltadorv3.core=>
+(((200) (\()) ((105) (\d \e \f \n \space \E \x \a \m \p \l \e \space \[)) (("end")))
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(findPattern2 '(\( \d \e \f \n \space \E \x \a \m \p \l \e \space \[) 0 '() '())
+resaltadorv3.core=>
+(((200) (\()) ((105) (\d \e \f \n \space \E \x \a \m \p \l \e \space \[)) (("end")))
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(findPattern2 '(\( \d \e \f \n \space \E \x \a \m \p \l \e \space \[) 0 '() '())
+resaltadorv3.core=>
+(((200) (\()) ((105) (\d \e \f \n \space \E \x \a \m \p \l \e \space \[)) (("end")))
+(followAFD transiciones \d 0)
+resaltadorv3.core=>
+-1
+(followAFD transiciones \d -1)
+resaltadorv3.core=>
+-1
+(followAFD transiciones "letter-e" 0)
+resaltadorv3.core=>
+5
+(followAFD transiciones "letter-e" 5)
+resaltadorv3.core=>
+5
+(followAFD transiciones \space 5)
+resaltadorv3.core=>
+105
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(findPattern2 '(\d \e \space \a \b \[) 0 '() '())
+resaltadorv3.core=>
+(((105) (\d \e \space \a \b \[)) (("end")))
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(findPattern2 '(\d \e \space \a \b \[) 0 '() '())
+resaltadorv3.core=>
+(((105) (\d \e \space \a \b \[)) (("end")))
+(some (fn [x] (= s x)) estados*)
+Syntax error compiling at (/private/var/folders/5c/43_1g8s55f3cvpcthrmsmwt40000gn/T/form-init8578284741684211005.clj:1:19).
+Unable to resolve symbol: s in this context
+(some (fn [x] (= 105 x)) estados*)
+resaltadorv3.core=>
+true
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(findPattern2 '(\d \e \space \a \b \[) 0 '() '())
+resaltadorv3.core=>
+(((105) (\d \e \space \a \b \[)) (("end")))
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(findPattern2 '(\d \e \space \a \b \[) 0 '() '())
+resaltadorv3.core=>
+(((105) (\d \e \space \a \b \[)) (("end")))
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(findPattern2 '(\d \e \space \a \b \[) 0 '() '())
+resaltadorv3.core=>
+(((105) (\d \e \space \a \b \[)) (("end")))
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(findPattern2 '(\d \e \space \a \b \[) 0 '() '())
+resaltadorv3.core=>
+(((105) (\d \e \space \a \b \[)) (("end")))
+--------------------

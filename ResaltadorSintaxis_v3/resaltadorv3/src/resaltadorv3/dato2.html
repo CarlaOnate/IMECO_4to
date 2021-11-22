@@ -1,0 +1,24 @@
+<!DOCTYPEhtml><html><head><title>SuperMegaCoolResaltador</title><body style="white-space: pre"><div><p><span style="color:#1a9fe5">;;;;;;;;;;;;;
+</span></p><p><span style="color:#1a9fe5">; Clojure uses Java's object types for booleans, strings and numbers.
+</span></p><p><span style="color:#1a9fe5">; If you want to create a literal list of data, use ' to stop it from
+</span></p><p><span style="color:#1a9fe5">; being evaluated
+</span></p><p><span style="color:#e1931e">'</span><span style="color:#e1931e">(</span><span style="color:#e1931e">+</span><span style="color: red"> 1</span><span style="color: red"> 2</span><span style="color:#e1931e">)</span><span style="color:#1a9fe5"> ; => (+ 1 2)
+</span></p><p><span style="color:#1a9fe5">; (shorthand for (quote (+ 1 2)))
+</span></p><p><span style="color:#1a9fe5">; You can eval a quoted list
+</span></p><p><span style="color:#e1931e">(</span><span style="color:#5da28c">eval</span><span style="color:#e1931e"> '</span><span style="color:#e1931e">(</span><span style="color:#e1931e">+</span><span style="color: red"> 1</span><span style="color: red"> 2</span><span style="color:#e1931e">)</span><span style="color:#e1931e">)</span><span style="color:#1a9fe5"> ; => 3
+</span></p><p><span style="color:#1a9fe5">; Collections & Sequences
+</span></p><p><span style="color:#1a9fe5">;;;;;;;;;;;;;;;;;;;
+</span></p><p><span style="color:#1a9fe5">; Lists are linked-list data structures, while Vectors are array-backed.
+</span></p><p><span style="color:#1a9fe5">; A list would be written as just (1 2 3), but we have to quote
+</span></p><p><span style="color:#1a9fe5">; it to stop the reader thinking it's a function.
+</span></p><p><span style="color:#1a9fe5">; Also, (list 1 2 3) is the same as '(1 2 3)
+</span></p><p><span style="color:#1a9fe5">; "Collections" are just groups of data
+</span></p><p><span style="color:#1a9fe5">; Both lists and vectors are collections:
+</span></p><p><span style="color:#e1931e">(</span><span style="color:#5da28c">coll?</span><span style="color:#e1931e"> '</span><span style="color:#e1931e">(</span><span style="color: red">1</span><span style="color: red"> 2</span><span style="color: red"> 3</span><span style="color:#e1931e">)</span><span style="color:#e1931e">)</span><span style="color:#1a9fe5"> ; => true
+</span></p><p><span style="color:#e1931e">(</span><span style="color:#5da28c">coll?</span><span style="color:#e1931e"> [</span><span style="color: red">1</span><span style="color: red"> 2</span><span style="color: red"> 3</span><span style="color:#e1931e">]</span><span style="color:#e1931e">)</span><span style="color:#1a9fe5"> ; => true
+</span></p><p><span style="color:#1a9fe5">; "Sequences" (seqs) are abstract descriptions of lists of data.
+</span></p><p><span style="color:#1a9fe5">; Only lists are seqs.
+</span></p><p><span style="color:#e1931e">(</span><span style="color:#5da28c">seq?</span><span style="color:#e1931e"> '</span><span style="color:#e1931e">(</span><span style="color: red">1</span><span style="color: red"> 2</span><span style="color: red"> 3</span><span style="color:#e1931e">)</span><span style="color:#e1931e">)</span><span style="color:#1a9fe5"> ; => true
+</span></p><p><span style="color:#e1931e">(</span><span style="color:#5da28c">seq?</span><span style="color:#e1931e"> [</span><span style="color: red">1</span><span style="color: red"> 2</span><span style="color: red"> 3</span><span style="color:#e1931e">]</span><span style="color:#e1931e">)</span><span style="color:#1a9fe5"> ; => false
+</span></p><p><span style="color:#1a9fe5">; A seq need only provide an entry when it is accessed.
+</span></p><p><span style="color:black"></span></p></div></body></html>

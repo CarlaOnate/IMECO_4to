@@ -5,7 +5,8 @@
 (def reservedWords '("println" "def" "if" "cond" "defn" "fn" "else" "true" "false" "nil" "cons" "first" "second" "rest" "next" "concat" "map" "apply" "filter" "reduce" "pmap" "let" "seq" "conj" "do" "and" "or"
 "not" "not=" "quote" "empty?" "take" "range" "doall" "time" "future" "delay" "promise"))
 
-; (def listFile (seq (slurp "src/resaltadorv3/datos.txt")))
+(def listFile (seq (slurp "src/resaltadorv3/datos.txt")))
+;(def filesList )
 
 ; lista transiciones
 (def transiciones '((0 \space 0) (0 \newline 201) (0 "number" 1) (1 "number" 1) (1 "letter-e" 101) (1 \e 101) (1 "special" 101) (1 "parenthesis" 101)
@@ -27,7 +28,7 @@
     (some #(= el %) '(\a \b \c \d \f \g \h \i \j \k \l \m \n \o \p \q \r \s \t \u \v \w \x \y \z \A \B \C \D \E \F \G \H \I \J \K \L \M \N \O \P \Q \R \S \T \U \V \W \X \Y \Z)) "letter-e"
     (some #(= el %) '(\1 \2 \3 \4 \5 \6 \7 \8 \9 \0)) "number"
     (some #(= el %) '(\{ \} \[ \] \( \))) "parenthesis"
-    (some #(= el %) '(\+ \- \* \/ \ \\ \' \? \: \, \& \%)) "special"
+    (some #(= el %) '(\+ \- \* \# \/ \\ \' \? \: \, \& \%)) "special"
     :else el))
 
 (defn estado*? [state]
@@ -44,7 +45,7 @@
 ; recibe (0 simbolo 0)
 (defn mapAFD [el simbolo estado] (if (and (= (second el) simbolo) (= (first el) estado)) (nth el 2) -1))
 
-(defn returnNumerical [x] (if x x 0))
+(defn returnNumerical [x] (if (not (nil? x)) x -1))
 
 (defn followAFD2 [afd simbolo estado]
   (returnNumerical (some #(when (pos? %) %) (map (fn [x] (mapAFD x simbolo estado)) transiciones))))
@@ -85,16 +86,6 @@
   (spit (str (subs fileName 0 (- (count fileName) 4)) ".html")
     (str htmlHead (apply str (map (fn [el] (htmlTag el)) resList)) htmlEnd)))
 
-; (defn findPattern2 [file state word res]
-;   (loop [f file s state w word r res] (when (not (nil? file))
-;     (cond
-;       (nil? f) (concat r (list (list (list s) w)) (list (list (list "end"))))
-;       (= s -1) (recur (next f) 0 (concat w (list (first f))) r)
-;       (> s 100) (if (some (fn [x] (= s x)) estados*)
-;         (recur (concat (list (first (reverse w))) f) 0 '() (concat r (list (list (list s) (reverse (next (reverse w)))))))
-;         (recur f 0 '() (concat r (list (list (list s) w)))))
-;    :else (recur (next f) (followAFD transiciones (letterToSymbol (first f)) s) (concat w (list (first f))) r)))))
-
 
 (defn findPattern2HTML [file state word res]
  (loop [f file s state w word r res] (when (not (nil? file))
@@ -117,10 +108,11 @@
         (recur fname f 0 '() (concat r (list (list (list s) w)))))
    :else (recur fname (next f) (followAFD transiciones (letterToSymbol (first f)) s) (concat w (list (first f))) r)))))
 
-
-; (defn main []
-;     (findPattern2HTML listFile 0 '() '((("begin")))))
+(defn main []
+    (findPattern2HTML listFile 0 '() '((("begin")))))
 
 ;(mainp '("src/resaltadorv3/dato1.txt" "src/resaltadorv3/dato2.txt"))
-(defn mainp [listFiles] ;(map #(seq (slurp %)) listFiles))
-  (pmap (fn [filePath] (pfindPattern2HTML filePath (seq (slurp filePath)) 0 '() '())) listFiles))
+(defn mainp [] ;(map #(seq (slurp %)) listFiles))
+  (with-open [rdr (clojure.java.io/reader "src/resaltadorv3/test.txt")]
+  ;(pfindPattern2HTML rdr (seq (slurp rdr)) 0 '() '())))
+  (pmap (fn [filePath] (pfindPattern2HTML filePath (seq (slurp filePath)) 0 '() '())) (line-seq rdr))))

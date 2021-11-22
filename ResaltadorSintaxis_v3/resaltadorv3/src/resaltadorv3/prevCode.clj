@@ -31,3 +31,13 @@
     ;         (spit "datos.html" "</p></div>")
     ;         (spit "datos.html" "</body>")
     ;         (spit "datos.html" "</html>"))
+
+    (defn findPattern2 [file state word res]
+      (loop [f file s state w word r res] (when (not (nil? file))
+        (cond
+          (nil? f) (concat r (list (list (list s) w)) (list (list (list "end"))))
+          (= s -1) (recur (next f) 0 (concat w (list (first f))) r)
+          (> s 100) (if (some (fn [x] (= s x)) estados*)
+            (recur (concat (list (first (reverse w))) f) 0 '() (concat r (list (list (list s) (reverse (next (reverse w)))))))
+            (recur f 0 '() (concat r (list (list (list s) w)))))
+       :else (recur (next f) (followAFD transiciones (letterToSymbol (first f)) s) (concat w (list (first f))) r)))))
