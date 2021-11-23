@@ -1,0 +1,11 @@
+;;;;;;;;;;;;;
+; Clojure uses Java's object types for booleans, strings and numbers.
+; If you want to create a literal list of data, use ' to stop it from
+; being evaluated
+'(+ 1 2) ; => (+ 1 2)
+; (shorthand for (quote (+ 1 2)))
+; You can eval a quoted list
+(eval '(+ 1 2)) ; => 3
+; Collections & Sequences
+;;;;;;;;;;;;;;;;;;;
+; Lists are linked-list data structures, while Vectors are array-backed.

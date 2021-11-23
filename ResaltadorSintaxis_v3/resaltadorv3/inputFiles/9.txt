@@ -1,0 +1,7 @@
+(do
+  (print "Hello")
+  "World") ; => "World" (prints "Hello")
+; Functions have an implicit do
+(defn print-and-say-hello [name]
+  (print "Saying hello to " name)
+  (str "Hello " name))

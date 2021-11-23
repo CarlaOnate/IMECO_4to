@@ -111,8 +111,16 @@
 (defn main []
     (findPattern2HTML listFile 0 '() '((("begin")))))
 
-;(mainp '("src/resaltadorv3/dato1.txt" "src/resaltadorv3/dato2.txt"))
-(defn mainp [] ;(map #(seq (slurp %)) listFiles))
+(defn mainMultFiles []
   (with-open [rdr (clojure.java.io/reader "src/resaltadorv3/test.txt")]
-  ;(pfindPattern2HTML rdr (seq (slurp rdr)) 0 '() '())))
+    (map (fn [filePath] (pfindPattern2HTML filePath (seq (slurp filePath)) 0 '() '())) (doall (line-seq rdr)))))
+
+;(mainp '("src/resaltadorv3/dato1.txt" "src/resaltadorv3/dato2.txt"))
+(defn mainp []
+  (with-open [rdr (clojure.java.io/reader "src/resaltadorv3/test.txt")]
   (pmap (fn [filePath] (pfindPattern2HTML filePath (seq (slurp filePath)) 0 '() '())) (line-seq rdr))))
+
+(defn mainPartition []
+  (with-open [rdr (clojure.java.io/reader "src/resaltadorv3/test.txt")]
+  (pmap (fn [files] (map #(pfindPattern2HTML % (seq (slurp %)) 0 '() '()) files)) (partition-all 5 (doall (line-seq rdr))))))
+    ;(map (fn [el] pfindPattern2HTML el (seq (slurp el)) 0 '() '())) files) (partition-all 5 (doall (line-seq rdr))))))

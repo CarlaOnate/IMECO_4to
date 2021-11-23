@@ -1,0 +1,15 @@
+
+; Use fn to create new functions. A function always returns
+; its last statement.
+(fn [] "Hello World") ; => fn
+; (You need extra parens to call it)
+((fn [] "Hello World")) ; => "Hello World"
+; You can create a var using def
+(def x 1)
+x ; => 1
+; Assign a function to a var
+(def hello-world (fn [] "Hello World"))
+(hello-world) ; => "Hello World"
+; You can shorten this process by using defn
+(defn hello-world [] "Hello World")
+; The [] is the list of arguments for the function.

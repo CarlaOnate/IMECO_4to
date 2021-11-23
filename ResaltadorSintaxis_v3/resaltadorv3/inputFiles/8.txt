@@ -1,0 +1,16 @@
+(defn hello [name]
+  (str "Hello " name))
+(hello "Steve") ; => "Hello Steve"
+; You can also use this shorthand to create functions:
+(def hello2 #(str "Hello " %1))
+(hello2 "Julie") ; => "Hello Julie"
+; Useful forms
+;;;;;;;;;;;;;;;;;
+; Logic constructs in clojure are just macros, and look like
+; everything else
+(if false "a" "b") ; => "b"
+(if false "a") ; => nil
+; Use let to create temporary bindings
+(let [a 1 b 2]
+  (> a b)) ; => false
+; Group statements together with do

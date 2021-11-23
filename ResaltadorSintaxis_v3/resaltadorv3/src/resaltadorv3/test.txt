@@ -1,2 +1,10 @@
-src/resaltadorv3/dato1.txt
-src/resaltadorv3/dato2.txt
+inputFiles/1.txt
+inputFiles/2.txt
+inputFiles/3.txt
+inputFiles/4.txt
+inputFiles/5.txt
+inputFiles/6.txt
+inputFiles/7.txt
+inputFiles/8.txt
+inputFiles/9.txt
+inputFiles/10.txt

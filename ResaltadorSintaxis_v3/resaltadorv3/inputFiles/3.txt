@@ -1,0 +1,9 @@
+; A list would be written as just (1 2 3), but we have to quote
+; it to stop the reader thinking it's a function.
+; Also, (list 1 2 3) is the same as '(1 2 3)
+; "Collections" are just groups of data
+; Both lists and vectors are collections:
+(coll? '(1 2 3)) ; => true
+(coll? [1 2 3]) ; => true
+; "Sequences" (seqs) are abstract descriptions of lists of data.
+; Only lists are seqs.

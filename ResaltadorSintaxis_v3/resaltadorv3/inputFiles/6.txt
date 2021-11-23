@@ -1,0 +1,6 @@
+; Reduce can take an initial-value argument too
+(reduce conj [] '(3 2 1))
+; = (conj (conj (conj [] 3) 2) 1)
+; => [3 2 1]
+; Functions
+;;;;;;;;;;;;;;;;;;;;;

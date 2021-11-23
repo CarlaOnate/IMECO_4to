@@ -1,0 +1,12 @@
+; For lists, they insert at the beginning. For vectors, they insert at the end.
+(conj [1 2 3] 4) ; => [1 2 3 4]
+(conj '(1 2 3) 4) ; => (4 1 2 3)
+; Use concat to add lists or vectors together
+(concat [1 2] '(3 4)) ; => (1 2 3 4)
+; Use filter, map to interact with collections
+(map inc [1 2 3]) ; => (2 3 4)
+(filter even? [1 2 3]) ; => (2)
+; Use reduce to reduce them
+(reduce + [1 2 3 4])
+; = (+ (+ (+ 1 2) 3) 4)
+; => 10
