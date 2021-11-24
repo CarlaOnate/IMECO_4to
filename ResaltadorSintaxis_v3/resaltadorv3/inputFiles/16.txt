@@ -8,11 +8,8 @@ in a block like this.
 -- You have numbers
 3 -- 3
 123.345
-123
-123.4
+123e9
 123.345E-12
-123.3e1
-123.5e-12
 
 -- Math is what you would expect
 1 + 1 -- 2
