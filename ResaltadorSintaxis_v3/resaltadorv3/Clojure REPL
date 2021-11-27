@@ -14,148 +14,166 @@ Executes the selection. Sends the selected text to the REPL.
 
 You can disable this help text in the settings.
 Starting REPL with lein in /Users/carla/Documents/ITC-Tec/Ago-Dic21/IMECO_Compu/IMECO_4to/ResaltadorSintaxis_v3/resaltadorv3
-#error {
- :cause cond requires an even number of forms
- :via
- [{:type clojure.lang.Compiler$CompilerException
-   :message Syntax error macroexpanding clojure.core/cond at (resaltadorv3/core.clj:86:2).
-   :data #:clojure.error{:phase :macro-syntax-check, :line 86, :column 2, :source resaltadorv3/core.clj, :symbol clojure.core/cond}
-   :at [clojure.lang.Compiler macroexpand1 Compiler.java 7014]}
-  {:type java.lang.IllegalArgumentException
-   :message cond requires an even number of forms
-   :at [clojure.core$cond invokeStatic core.clj 585]}]
- :trace
- [[clojure.core$cond invokeStatic core.clj 585]
-  [clojure.core$cond doInvoke core.clj 576]
-  [clojure.lang.RestFn applyTo RestFn.java 142]
-  [clojure.lang.Var applyTo Var.java 705]
-  [clojure.lang.Compiler macroexpand1 Compiler.java 6997]
-  [clojure.lang.Compiler analyzeSeq Compiler.java 7097]
-  [clojure.lang.Compiler analyze Compiler.java 6793]
-  [clojure.lang.Compiler analyze Compiler.java 6749]
-  [clojure.lang.Compiler$IfExpr$Parser parse Compiler.java 2841]
-  [clojure.lang.Compiler analyzeSeq Compiler.java 7111]
-  [clojure.lang.Compiler analyze Compiler.java 6793]
-  [clojure.lang.Compiler analyzeSeq Compiler.java 7099]
-  [clojure.lang.Compiler analyze Compiler.java 6793]
-  [clojure.lang.Compiler analyze Compiler.java 6749]
-  [clojure.lang.Compiler$IfExpr$Parser parse Compiler.java 2841]
-  [clojure.lang.Compiler analyzeSeq Compiler.java 7111]
-  [clojure.lang.Compiler analyze Compiler.java 6793]
-  [clojure.lang.Compiler analyzeSeq Compiler.java 7099]
-  [clojure.lang.Compiler analyze Compiler.java 6793]
-  [clojure.lang.Compiler analyze Compiler.java 6749]
-  [clojure.lang.Compiler$IfExpr$Parser parse Compiler.java 2841]
-  [clojure.lang.Compiler analyzeSeq Compiler.java 7111]
-  [clojure.lang.Compiler analyze Compiler.java 6793]
-  [clojure.lang.Compiler analyzeSeq Compiler.java 7099]
-  [clojure.lang.Compiler analyze Compiler.java 6793]
-  [clojure.lang.Compiler analyze Compiler.java 6749]
-  [clojure.lang.Compiler$IfExpr$Parser parse Compiler.java 2841]
-  [clojure.lang.Compiler analyzeSeq Compiler.java 7111]
-  [clojure.lang.Compiler analyze Compiler.java 6793]
-  [clojure.lang.Compiler analyzeSeq Compiler.java 7099]
-  [clojure.lang.Compiler analyze Compiler.java 6793]
-  [clojure.lang.Compiler analyze Compiler.java 6749]
-  [clojure.lang.Compiler$IfExpr$Parser parse Compiler.java 2841]
-  [clojure.lang.Compiler analyzeSeq Compiler.java 7111]
-  [clojure.lang.Compiler analyze Compiler.java 6793]
-  [clojure.lang.Compiler analyzeSeq Compiler.java 7099]
-  [clojure.lang.Compiler analyze Compiler.java 6793]
-  [clojure.lang.Compiler analyze Compiler.java 6749]
-  [clojure.lang.Compiler$IfExpr$Parser parse Compiler.java 2841]
-  [clojure.lang.Compiler analyzeSeq Compiler.java 7111]
-  [clojure.lang.Compiler analyze Compiler.java 6793]
-  [clojure.lang.Compiler analyzeSeq Compiler.java 7099]
-  [clojure.lang.Compiler analyze Compiler.java 6793]
-  [clojure.lang.Compiler analyze Compiler.java 6749]
-  [clojure.lang.Compiler$IfExpr$Parser parse Compiler.java 2841]
-  [clojure.lang.Compiler analyzeSeq Compiler.java 7111]
-  [clojure.lang.Compiler analyze Compiler.java 6793]
-  [clojure.lang.Compiler analyzeSeq Compiler.java 7099]
-  [clojure.lang.Compiler analyze Compiler.java 6793]
-  [clojure.lang.Compiler analyze Compiler.java 6749]
-  [clojure.lang.Compiler$IfExpr$Parser parse Compiler.java 2841]
-  [clojure.lang.Compiler analyzeSeq Compiler.java 7111]
-  [clojure.lang.Compiler analyze Compiler.java 6793]
-  [clojure.lang.Compiler analyzeSeq Compiler.java 7099]
-  [clojure.lang.Compiler analyze Compiler.java 6793]
-  [clojure.lang.Compiler analyze Compiler.java 6749]
-  [clojure.lang.Compiler$IfExpr$Parser parse Compiler.java 2841]
-  [clojure.lang.Compiler analyzeSeq Compiler.java 7111]
-  [clojure.lang.Compiler analyze Compiler.java 6793]
-  [clojure.lang.Compiler analyzeSeq Compiler.java 7099]
-  [clojure.lang.Compiler analyze Compiler.java 6793]
-  [clojure.lang.Compiler analyze Compiler.java 6749]
-  [clojure.lang.Compiler$BodyExpr$Parser parse Compiler.java 6124]
-  [clojure.lang.Compiler$FnMethod parse Compiler.java 5471]
-  [clojure.lang.Compiler$FnExpr parse Compiler.java 4033]
-  [clojure.lang.Compiler analyzeSeq Compiler.java 7109]
-  [clojure.lang.Compiler analyze Compiler.java 6793]
-  [clojure.lang.Compiler analyzeSeq Compiler.java 7099]
-  [clojure.lang.Compiler analyze Compiler.java 6793]
-  [clojure.lang.Compiler access$300 Compiler.java 38]
-  [clojure.lang.Compiler$DefExpr$Parser parse Compiler.java 596]
-  [clojure.lang.Compiler analyzeSeq Compiler.java 7111]
-  [clojure.lang.Compiler analyze Compiler.java 6793]
-  [clojure.lang.Compiler analyze Compiler.java 6749]
-  [clojure.lang.Compiler eval Compiler.java 7185]
-  [clojure.lang.Compiler load Compiler.java 7640]
-  [clojure.lang.RT loadResourceScript RT.java 381]
-  [clojure.lang.RT loadResourceScript RT.java 372]
-  [clojure.lang.RT load RT.java 459]
-  [clojure.lang.RT load RT.java 424]
-  [clojure.core$load$fn__6856 invoke core.clj 6115]
-  [clojure.core$load invokeStatic core.clj 6114]
-  [clojure.core$load doInvoke core.clj 6098]
-  [clojure.lang.RestFn invoke RestFn.java 408]
-  [clojure.core$load_one invokeStatic core.clj 5897]
-  [clojure.core$load_one invoke core.clj 5892]
-  [clojure.core$load_lib$fn__6796 invoke core.clj 5937]
-  [clojure.core$load_lib invokeStatic core.clj 5936]
-  [clojure.core$load_lib doInvoke core.clj 5917]
-  [clojure.lang.RestFn applyTo RestFn.java 142]
-  [clojure.core$apply invokeStatic core.clj 669]
-  [clojure.core$load_libs invokeStatic core.clj 5974]
-  [clojure.core$load_libs doInvoke core.clj 5958]
-  [clojure.lang.RestFn applyTo RestFn.java 137]
-  [clojure.core$apply invokeStatic core.clj 669]
-  [clojure.core$require invokeStatic core.clj 5996]
-  [clojure.core$require doInvoke core.clj 5996]
-  [clojure.lang.RestFn invoke RestFn.java 408]
-  [user$eval5 invokeStatic form-init11501920844661285472.clj 1]
-  [user$eval5 invoke form-init11501920844661285472.clj 1]
-  [clojure.lang.Compiler eval Compiler.java 7181]
-  [clojure.lang.Compiler eval Compiler.java 7170]
-  [clojure.lang.Compiler eval Compiler.java 7170]
-  [clojure.lang.Compiler load Compil
-er.java 7640]
-  [clojure.lang.Compiler loadFile Compiler.java 7578]
-  [clojure.main$load_script invokeStatic main.clj 475]
-  [clojure.main$init_opt invokeStatic main.clj 477]
-  [clojure.main$init_opt invoke main.clj 477]
-  [clojure.main$initialize invokeStatic main.clj 508]
-  [clojure.main$null_opt invokeStatic main.clj 542]
-  [clojure.main$null_opt invoke main.clj 539]
-  [clojure.main$main invokeStatic main.clj 664]
-  [clojure.main$main doInvoke main.clj 616]
-  [clojure.lang.RestFn applyTo RestFn.java 137]
-  [clojure.lang.Var applyTo Var.java 705]
-  [clojure.main main main.java 40]]}
-nREPL server started on port 59627 on host 127.0.0.1 - nrepl://127.0.0.1:59627
+nREPL server started on port 51758 on host 127.0.0.1 - nrepl://127.0.0.1:51758
 Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
 :reloading (resaltadorv3.core resaltadorv3.core-test)
-:error-while-loading resaltadorv3.core
-Syntax error macroexpanding clojure.core/cond at (resaltadorv3/core.clj:86:2).
 Refresh complete
 Refreshing code...
 No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
 
 :reloading (resaltadorv3.core resaltadorv3.core-test)
 Refresh complete
+(time (mainSecuencial))
+Syntax error compiling at (/private/var/folders/5c/43_1g8s55f3cvpcthrmsmwt40000gn/T/form-init11982868001386915630.clj:1:11).
+Unable to resolve symbol: mainSecuencial in this context
 (in-ns 'resaltadorv3.core)
 resaltadorv3.core=>
-[clojure.lang.Namespace 323656322 "resaltadorv3.core"]
+[clojure.lang.Namespace 639479586 "resaltadorv3.core"]
+(time (mainSecuencial))
+"Elapsed time: 4.636558 msecs"
+resaltadorv3.core=>
+(nil)
+(time (mainPartition))
+"Elapsed time: 4.37689 msecs"
+resaltadorv3.core=>
+((nil nil nil nil nil nil nil nil nil nil)
+ (nil nil nil nil nil nil nil nil nil nil)
+ (nil nil nil nil nil nil nil nil nil nil))
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(followAFD2 haskell "letter-e" 0)
+Execution error (IllegalArgumentException) at resaltadorv3.core/followAFD2 (core.clj:86).
+Don't know how to create ISeq from: clojure.core$map$fn__5880
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(followAFD2 haskell "letter-e" 0)
+resaltadorv3.core=>
+9
+(followAFD2 haskell \- 0)
+resaltadorv3.core=>
+10
+(followAFD2 haskell \- 10)
+resaltadorv3.core=>
+11
+(followAFD2 haskell \space 11)
+resaltadorv3.core=>
+11
+(followAFD2 haskell \space 10)
+resaltadorv3.core=>
+200
+(followAFD2 haskell "number" 10)
+resaltadorv3.core=>
+nil
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(followAFD2 haskell "number" 10)
+resaltadorv3.core=>
+-1
+(followAFD2 haskell "number" 11)
+resaltadorv3.core=>
+11
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(mainSecuencial)
+Error printing return value (StackOverflowError) at clojure.lang.RT/seq (RT.java:535).
+null
+(mainSecuencial)
+Error printing return value (StackOverflowError) at clojure.lang.RT/seq (RT.java:535).
+null
+(followAFD2 haskell "number" 0)
+resaltadorv3.core=>
+1
+(followAFD2 haskell "number" 1)
+resaltadorv3.core=>
+1
+(followAFD2 haskell \space 1)
+resaltadorv3.core=>
+101
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(followAFD2 haskell \space 1)
+resaltadorv3.core=>
+-1
+(followAFD2 haskell \space 1)
+resaltadorv3.core=>
+-1
+(followAFD2 haskell \space 0)
+resaltadorv3.core=>
+-1
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(followAFD2 haskell \space 0)
+-126
+resaltadorv3.core=>
+nil
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(followAFD2 haskell \space 0)
+nil
+resaltadorv3.core=>
+nil
+(followAFD2 haskell "number" 0)
+true
+resaltadorv3.core=>
+nil
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error reading source at (resaltadorv3/core.clj:86:48).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(followAFD2 haskell "number" 0)
+Execution error (NullPointerException) at resaltadorv3.core/followAFD2$fn (core.clj:86).
+Cannot invoke "clojure.lang.IFn.invoke()"
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(followAFD2 haskell "number" 0)
+Execution error (NullPointerException) at resaltadorv3.core/followAFD2$fn (core.clj:86).
+Cannot invoke "clojure.lang.IFn.invoke()"
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+Refresh complete
+(followAFD2 haskell "number" 0)
+-1
 resaltadorv3.core=>
 nil
 Refreshing code...
@@ -164,38 +182,47 @@ No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
 :reloading (resaltadorv3.core resaltadorv3.core-test)
 Refresh complete
 (mainSecuencial)
-resaltadorv3.core=>
-(nil)
+Error printing return value (StackOverflowError) at clojure.core/seq (core.clj:139).
+null
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (resaltadorv3.core resaltadorv3.core-test)
+:error-while-loading resaltadorv3.core
+Syntax error compiling at (resaltadorv3/core.clj:124:3).
+Refresh complete
 Refreshing code...
 No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
 
 :reloading (resaltadorv3.core resaltadorv3.core-test)
 Refresh complete
-(mainSecuencial)
-resaltadorv3.core=>
-(nil)
 Refreshing code...
 No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
 
-:reloading (resaltadorv3.core resaltadorv3.core-test)
+:reloading ()
 Refresh complete
-(mainSecuencial)
-resaltadorv3.core=>
-(nil)
+(pfindPattern2HTML (slurp "inputFiles/1.txt" 0 '() '()))
+
+Execution error (IllegalArgumentException) at resaltadorv3.core/eval7113 (form-init11982868001386915630.clj:1).
+No value supplied for key: ()
 Refreshing code...
 No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
 
-:reloading (resaltadorv3.core resaltadorv3.core-test)
+:reloading ()
 Refresh complete
-(mainSecuencial)
-resaltadorv3.core=>
-(nil)
+(pfindPattern2HTML (slurp "inputFiles/1.txt") 0 '() '())
+Execution error (ArityException) at resaltadorv3.core/eval7127 (form-init11982868001386915630.clj:1).
+Wrong number of args (4) passed to: resaltadorv3.core/pfindPattern2HTML
+(pfindPattern2 (slurp "inputFiles/1.txt" 0 '() '()))
+Execution error (IllegalArgumentException) at resaltadorv3.core/eval7137 (form-init11982868001386915630.clj:1).
+No value supplied for key: ()
 Refreshing code...
 No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
 
-:reloading (resaltadorv3.core resaltadorv3.core-test)
+:reloading ()
 Refresh complete
-(mainSecuencial)
-resaltadorv3.core=>
-(nil)
+(pfindPattern2 (slurp "inputFiles/1.txt") 0 '() '())
+Execution error (ArityException) at resaltadorv3.core/pfindPattern2 (core.clj:126).
+Wrong number of args (1) passed to: resaltadorv3.core/pwriteHTML
 --------------------
+(pfindPattern2 (seq (slurp "inputFiles/1.txt")) 0 '() '())
